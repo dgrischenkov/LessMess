@@ -1,0 +1,383 @@
+<?xml version="1.0"?>
+<scene id="1">
+	<attribute name="Name" value="" />
+	<attribute name="Time Scale" value="1" />
+	<attribute name="Smoothing Constant" value="50" />
+	<attribute name="Snap Threshold" value="5" />
+	<attribute name="Elapsed Time" value="40.0748" />
+	<attribute name="Next Replicated Node ID" value="43" />
+	<attribute name="Next Replicated Component ID" value="129" />
+	<attribute name="Next Local Node ID" value="16777342" />
+	<attribute name="Next Local Component ID" value="16778716" />
+	<attribute name="Variables" />
+	<attribute name="Variable Names" value="" />
+	<component type="Octree" id="1" />
+	<component type="DebugRenderer" id="2" />
+	<component type="Renderer2D" id="4" />
+	<component type="PhysicsWorld2D" id="7">
+		<attribute name="Draw Shape" value="true" />
+		<attribute name="Draw Joint" value="true" />
+		<attribute name="Draw Aabb" value="true" />
+		<attribute name="Draw Pair" value="true" />
+		<attribute name="Draw CenterOfMass" value="true" />
+		<attribute name="Allow Sleeping" value="true" />
+		<attribute name="Warm Starting" value="true" />
+		<attribute name="Continuous Physics" value="true" />
+		<attribute name="Sub Stepping" value="true" />
+		<attribute name="Gravity" value="0 0" />
+		<attribute name="Auto Clear Forces" value="true" />
+	</component>
+	<node id="4">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="PlayerCamera" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="4.06564 -3.66663 -10" />
+		<attribute name="Rotation" value="1 0 0 0" />
+		<attribute name="Scale" value="1.1 1.1 1" />
+		<attribute name="Variables" />
+		<component type="Camera" id="11">
+			<attribute name="Near Clip" value="0" />
+			<attribute name="Aspect Ratio" value="1.78218" />
+			<attribute name="Orthographic" value="true" />
+			<attribute name="Orthographic Size" value="6.3" />
+		</component>
+		<component type="RigidBody2D" id="52">
+			<attribute name="Body Type" value="Dynamic" />
+			<attribute name="Mass" value="3.80133" />
+			<attribute name="Inertia" value="0.00022998" />
+			<attribute name="Linear Damping" value="5" />
+			<attribute name="Angular Damping" value="10" />
+		</component>
+		<component type="CollisionCircle2D" id="53">
+			<attribute name="Category Bits" value="1" />
+			<attribute name="Mask Bits" value="65533" />
+			<attribute name="Density" value="10000" />
+		</component>
+		<component type="ScriptInstance" id="55">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/PlayerCamera.as" />
+			<attribute name="Class Name" value="PlayerCamera" />
+			<attribute name="playerNodeName" value="PlayerVehicle" />
+			<attribute name="positionFactor" value="100" />
+			<attribute name="rotationFactor" value="0.0001" />
+		</component>
+	</node>
+	<node id="3">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="Fabrica" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="4.96872 0.390967 0" />
+		<attribute name="Rotation" value="0.851985 0 0 -0.523566" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="StaticSprite2D" id="5">
+			<attribute name="Sprite" value="Sprite2D;Textures/fon.png" />
+		</component>
+	</node>
+	<node id="12">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="PlayerVehicle" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="4.7818 -3.72779 0" />
+		<attribute name="Rotation" value="0.991445 0 0 -0.130526" />
+		<attribute name="Scale" value="1.1 1.1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="51">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
+			<attribute name="Class Name" value="ProxyNode" />
+			<attribute name="sourceXML" value="Objects/PlayerVehicle.xml" />
+		</component>
+	</node>
+	<node id="14">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="Mashine00" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="4.18878 3.55122 0" />
+		<attribute name="Rotation" value="0.982559 0 0 0.18595" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="56">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
+			<attribute name="Class Name" value="ProxyNode" />
+			<attribute name="sourceXML" value="Objects/Mashine.xml" />
+		</component>
+	</node>
+	<node id="16">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="Zone" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="0 0 0" />
+		<attribute name="Rotation" value="1 0 0 0" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<node id="20">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Part" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="0.978923 0.368769 0" />
+			<attribute name="Rotation" value="0.702177 0 0 -0.712005" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticSprite2D" id="66">
+				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
+			</component>
+			<component type="RigidBody2D" id="67" />
+			<component type="CollisionBox2D" id="68">
+				<attribute name="Size" value="3 1" />
+				<attribute name="Category Bits" value="1" />
+				<attribute name="Mask Bits" value="65535" />
+			</component>
+		</node>
+		<node id="22">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Part" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="1.67414 2.26753 0" />
+			<attribute name="Rotation" value="0.669654 0 0 -0.742674" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticSprite2D" id="72">
+				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
+			</component>
+			<component type="RigidBody2D" id="73" />
+			<component type="CollisionBox2D" id="74">
+				<attribute name="Size" value="3 1" />
+				<attribute name="Category Bits" value="1" />
+				<attribute name="Mask Bits" value="65535" />
+			</component>
+		</node>
+		<node id="23">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Part" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="1.95014 4.92859 0" />
+			<attribute name="Rotation" value="0.669654 0 0 -0.742674" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticSprite2D" id="75">
+				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
+			</component>
+			<component type="RigidBody2D" id="76" />
+			<component type="CollisionBox2D" id="77">
+				<attribute name="Size" value="3 1" />
+				<attribute name="Category Bits" value="1" />
+				<attribute name="Mask Bits" value="65535" />
+			</component>
+		</node>
+		<node id="28">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Part" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="1.59258 6.7057 0" />
+			<attribute name="Rotation" value="-0.0432853 0 0 -0.999063" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticSprite2D" id="90">
+				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
+			</component>
+			<component type="RigidBody2D" id="91" />
+			<component type="CollisionBox2D" id="92">
+				<attribute name="Size" value="3 1" />
+				<attribute name="Category Bits" value="1" />
+				<attribute name="Mask Bits" value="65535" />
+			</component>
+		</node>
+		<node id="29">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Part" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="4.5615 6.44796 0" />
+			<attribute name="Rotation" value="-0.0432853 0 0 -0.999063" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticSprite2D" id="93">
+				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
+			</component>
+			<component type="RigidBody2D" id="94" />
+			<component type="CollisionBox2D" id="95">
+				<attribute name="Size" value="3 1" />
+				<attribute name="Category Bits" value="1" />
+				<attribute name="Mask Bits" value="65535" />
+			</component>
+		</node>
+		<node id="30">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Part" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="7.3807 6.20321 0" />
+			<attribute name="Rotation" value="-0.0432853 0 0 -0.999063" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticSprite2D" id="96">
+				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
+			</component>
+			<component type="RigidBody2D" id="97" />
+			<component type="CollisionBox2D" id="98">
+				<attribute name="Size" value="3 1" />
+				<attribute name="Category Bits" value="1" />
+				<attribute name="Mask Bits" value="65535" />
+			</component>
+		</node>
+		<node id="31">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Part" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="8.21136 5.06663 0" />
+			<attribute name="Rotation" value="-0.765475 0 0 -0.643466" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticSprite2D" id="99">
+				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
+			</component>
+			<component type="RigidBody2D" id="100" />
+			<component type="CollisionBox2D" id="101">
+				<attribute name="Size" value="3 1" />
+				<attribute name="Category Bits" value="1" />
+				<attribute name="Mask Bits" value="65535" />
+			</component>
+		</node>
+		<node id="32">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Part" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="7.72084 2.25566 0" />
+			<attribute name="Rotation" value="-0.765475 0 0 -0.643466" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticSprite2D" id="102">
+				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
+			</component>
+			<component type="RigidBody2D" id="103" />
+			<component type="CollisionBox2D" id="104">
+				<attribute name="Size" value="3 1" />
+				<attribute name="Category Bits" value="1" />
+				<attribute name="Mask Bits" value="65535" />
+			</component>
+		</node>
+		<node id="33">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Part" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="7.2571 -0.401844 0" />
+			<attribute name="Rotation" value="-0.765475 0 0 -0.643466" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticSprite2D" id="105">
+				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
+			</component>
+			<component type="RigidBody2D" id="106" />
+			<component type="CollisionBox2D" id="107">
+				<attribute name="Size" value="3 1" />
+				<attribute name="Category Bits" value="1" />
+				<attribute name="Mask Bits" value="65535" />
+			</component>
+		</node>
+		<node id="34">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Part" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="6.78451 -3.11008 0" />
+			<attribute name="Rotation" value="-0.765475 0 0 -0.643466" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticSprite2D" id="108">
+				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
+			</component>
+			<component type="RigidBody2D" id="109" />
+			<component type="CollisionBox2D" id="110">
+				<attribute name="Size" value="3 1" />
+				<attribute name="Category Bits" value="1" />
+				<attribute name="Mask Bits" value="65535" />
+			</component>
+		</node>
+		<node id="35">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Part" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="6.3123 -5.81613 0" />
+			<attribute name="Rotation" value="-0.765475 0 0 -0.643466" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticSprite2D" id="111">
+				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
+			</component>
+			<component type="RigidBody2D" id="112" />
+			<component type="CollisionBox2D" id="113">
+				<attribute name="Size" value="3 1" />
+				<attribute name="Category Bits" value="1" />
+				<attribute name="Mask Bits" value="65535" />
+			</component>
+		</node>
+		<node id="36">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Part" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="4.82614 -5.96082 0" />
+			<attribute name="Rotation" value="-0.960355 0 0 0.27878" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticSprite2D" id="114">
+				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
+			</component>
+			<component type="RigidBody2D" id="115" />
+			<component type="CollisionBox2D" id="116">
+				<attribute name="Size" value="3 1" />
+				<attribute name="Category Bits" value="1" />
+				<attribute name="Mask Bits" value="65535" />
+			</component>
+		</node>
+		<node id="37">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Part" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="2.36953 -4.40332 0" />
+			<attribute name="Rotation" value="-0.960355 0 0 0.27878" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticSprite2D" id="117">
+				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
+			</component>
+			<component type="RigidBody2D" id="118" />
+			<component type="CollisionBox2D" id="119">
+				<attribute name="Size" value="3 1" />
+				<attribute name="Category Bits" value="1" />
+				<attribute name="Mask Bits" value="65535" />
+			</component>
+		</node>
+		<node id="38">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Part" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="1.56339 -2.29423 0" />
+			<attribute name="Rotation" value="-0.788121 0 0 0.615521" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticSprite2D" id="120">
+				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
+			</component>
+			<component type="RigidBody2D" id="121" />
+			<component type="CollisionBox2D" id="122">
+				<attribute name="Size" value="3 1" />
+				<attribute name="Category Bits" value="1" />
+				<attribute name="Mask Bits" value="65535" />
+			</component>
+		</node>
+	</node>
+	<node id="42">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="Mashine00" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="3.53698 1.02278 0" />
+		<attribute name="Rotation" value="0.755492 0 0 -0.655156" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="128">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
+			<attribute name="Class Name" value="ProxyNode" />
+			<attribute name="sourceXML" value="Objects/Mashine.xml" />
+		</component>
+	</node>
+</scene>

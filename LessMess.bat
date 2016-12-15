@@ -1,0 +1,1 @@
+@start Urho3DPlayer.exe data/scripts/main.as

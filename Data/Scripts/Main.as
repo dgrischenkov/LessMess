@@ -19,12 +19,22 @@ void Start()
 void SubscribeToEvents()
 {
     SubscribeToEvent("PostRenderUpdate", "HandlePostRenderUpdate");
+    SubscribeToEvent("innerEvent", "HandleInnerEvent");
 }
 
 void HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData)
 {
     if (input.keyDown[KEY_SPACE])
         cast<PhysicsWorld2D>(oldScene.GetComponent("PhysicsWorld2D")).DrawDebugGeometry();
+}
+
+void HandleInnerEvent(StringHash eventType, VariantMap& eventData)
+{
+	if (eventData["next_level"].GetBool())
+	{
+	    oldScene.LoadXML(cache.GetFile("Scenes/Level02.xml"));
+	    renderer.viewports[0] = Viewport(oldScene, oldScene.GetChild("PlayerCamera").GetComponent("Camera"));
+	}
 }
 
 // Create XML patch instructions for screen joystick layout specific to this sample app

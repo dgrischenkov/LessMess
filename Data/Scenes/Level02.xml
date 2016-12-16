@@ -5,10 +5,10 @@
 	<attribute name="Smoothing Constant" value="50" />
 	<attribute name="Snap Threshold" value="5" />
 	<attribute name="Elapsed Time" value="40.0748" />
-	<attribute name="Next Replicated Node ID" value="43" />
-	<attribute name="Next Replicated Component ID" value="129" />
-	<attribute name="Next Local Node ID" value="16777342" />
-	<attribute name="Next Local Component ID" value="16778716" />
+	<attribute name="Next Replicated Node ID" value="44" />
+	<attribute name="Next Replicated Component ID" value="130" />
+	<attribute name="Next Local Node ID" value="16777345" />
+	<attribute name="Next Local Component ID" value="16778752" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<component type="Octree" id="1" />
@@ -378,6 +378,21 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
 			<attribute name="Class Name" value="ProxyNode" />
 			<attribute name="sourceXML" value="Objects/Mashine.xml" />
+		</component>
+	</node>
+	<node id="43">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneSpawnBox" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="3.215 3.04607 0" />
+		<attribute name="Rotation" value="1 0 0 0" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="129">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
+			<attribute name="Class Name" value="ProxyNode" />
+			<attribute name="sourceXML" value="Objects/ZoneSpawnBox.xml" />
 		</component>
 	</node>
 </scene>

@@ -4,8 +4,6 @@ class ZoneGet : ScriptObject
 
 	private uint boxCount = 0;
 
-	private Scene@ newScene; // TODO ???
-
 	void DelayedStart()
 	{
 	    SubscribeToEvent("PhysicsBeginContact2D", "HandleCollisionStart");
@@ -20,13 +18,12 @@ class ZoneGet : ScriptObject
 		if ( nodeA.name == node.name and nodeB.name == getBoxNodeName )
 		{
 			++boxCount;
-			log.Warning(boxCount);
 
-			if (boxCount == 3)
+			if (boxCount == 1)
 			{
-				newScene = Scene("Level02");
-			    newScene.LoadXML(cache.GetFile("Scenes/Level02.xml"));
-			    renderer.viewports[0] = Viewport(newScene, newScene.GetChild("PlayerCamera").GetComponent("Camera"));
+				VariantMap vmap;
+				vmap["next_level"] = true;
+				SendEvent("innerEvent", vmap);
 			}
 		}
 	}

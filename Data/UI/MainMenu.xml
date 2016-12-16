@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<element type="Window">
+	<attribute name="Name" value="MainMenu" />
+	<attribute name="Size" value="800 600" />
+	<attribute name="Horiz Alignment" value="Center" />
+	<attribute name="Vert Alignment" value="Center" />
+	<element type="Button">
+		<attribute name="Name" value="Button_play" />
+		<attribute name="Position" value="0 -70" />
+		<attribute name="Size" value="300 50" />
+		<attribute name="Horiz Alignment" value="Center" />
+		<attribute name="Vert Alignment" value="Center" />
+		<attribute name="Texture" value="Texture2D;Textures/button_play.png" />
+		<attribute name="Image Rect" value="0 0 300 50" />
+		<attribute name="Hover Image Offset" value="0 1" />
+	</element>
+	<element type="Button">
+		<attribute name="Name" value="Button_exit" />
+		<attribute name="Size" value="300 50" />
+		<attribute name="Horiz Alignment" value="Center" />
+		<attribute name="Vert Alignment" value="Center" />
+		<attribute name="Texture" value="Texture2D;Textures/button_exit.png" />
+		<attribute name="Image Rect" value="0 0 300 50" />
+		<attribute name="Hover Image Offset" value="0 1" />
+	</element>
+</element>

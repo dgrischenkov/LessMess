@@ -1,10 +1,8 @@
 #include "common.as"
-#include "Scripts/PlayerVehicle.as"
+#include "Utils.as"
 
-Scene@ oldScene;
-UIElement@ uielement;
-UIElement@ Button_play;
-UIElement@ Button_exit;
+Scene@ global_scene;
+Node@ nodeLogic;
 
 void Start()
 {
@@ -12,65 +10,21 @@ void Start()
 
     SampleStart();
 
-    input.mouseVisible = true;
+    global_scene = Scene();
 
-    XMLFile@ xmlfile = cache.GetResource("XMLFile", "Data/UI/MainMenu.xml");
-    XMLFile@ xmlfileStyle = cache.GetResource("XMLFile", "Data/UI/DefaultStyle.xml");
+    {
+        nodeLogic = global_scene.CreateChild("GameLogic");
+        ScriptInstance@ scriptInstance = nodeLogic.CreateComponent("ScriptInstance");
+        scriptInstance.CreateObject(cache.GetResource("ScriptFile", "Scripts/GameLogic.as"), "GameLogic");
+    }
 
-    uielement = ui.LoadLayout(xmlfile, xmlfileStyle);
-    ui.root.AddChild(uielement);
-
-    Button_play = uielement.GetChild("Button_play", true);
-    Button_exit = uielement.GetChild("Button_exit", true);
-
-    SubscribeToEvents();
-}
-
-void SubscribeToEvents()
-{
     SubscribeToEvent("PostRenderUpdate", "HandlePostRenderUpdate");
-    SubscribeToEvent("innerEvent", "HandleInnerEvent");
-
-    SubscribeToEvent(Button_play, "Pressed", "HandleWheelButtons");
-    SubscribeToEvent(Button_exit, "Pressed", "HandleWheelButtons");
-}
-
-void HandleWheelButtons(StringHash eventType, VariantMap& eventData) 
-{
-    UIElement@ edit = eventData["Element"].GetPtr();
-
-    if (edit is null) return;
-
-    if (edit is Button_play) 
-    {
-        input.mouseVisible = false;
-        ui.root.RemoveChild(uielement);
-        
-	    oldScene = Scene("Level01");
-	    oldScene.LoadXML(cache.GetFile("Scenes/Level01.xml"));
-	    renderer.viewports[0] = Viewport(oldScene, oldScene.GetChild("PlayerCamera").GetComponent("Camera"));
-    }
-
-
-    if (edit is Button_exit) 
-    {
-        engine.Exit();
-    }
 }
 
 void HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData)
 {
     if (input.keyDown[KEY_SPACE])
-        cast<PhysicsWorld2D>(oldScene.GetComponent("PhysicsWorld2D")).DrawDebugGeometry();
-}
-
-void HandleInnerEvent(StringHash eventType, VariantMap& eventData)
-{
-	if (eventData["next_level"].GetBool())
-	{
-	    oldScene.LoadXML(cache.GetFile("Scenes/Level02.xml"));
-	    renderer.viewports[0] = Viewport(oldScene, oldScene.GetChild("PlayerCamera").GetComponent("Camera"));
-	}
+        cast<PhysicsWorld2D>(global_scene.GetComponent("PhysicsWorld2D")).DrawDebugGeometry();
 }
 
 // Create XML patch instructions for screen joystick layout specific to this sample app

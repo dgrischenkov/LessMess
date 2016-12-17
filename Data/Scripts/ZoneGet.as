@@ -1,3 +1,5 @@
+#include "Scripts/GameLogicEventFunc.as"
+
 class ZoneGet : ScriptObject
 {
 	String getBoxNodeName;
@@ -21,9 +23,7 @@ class ZoneGet : ScriptObject
 
 			if (boxCount == 1)
 			{
-				VariantMap vmap;
-				vmap["next_level"] = true;
-				SendEvent("innerEvent", vmap);
+				GameLogicEventFunc_nextLevel();
 			}
 		}
 	}

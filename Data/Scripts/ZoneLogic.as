@@ -1,11 +1,58 @@
 #include "Scripts/GameLogicEventFunc.as"
 #include "Scripts/GameLogicMenuFunc.as"
 
+class Dispetcher
+{
+	VariantMap notesCargo;
+
+	bool canIGetThisBox(int ZoneType, int ZoneMashineNumber)
+	{
+		String cargoStr = ZoneType + "-" + ZoneMashineNumber;
+
+		if (notesCargo[cargoStr].GetFloat() <= 100.0f)
+		{
+			notesCargo[cargoStr] = notesCargo[cargoStr].GetFloat() + 100.0f;
+			return true;
+		}
+
+		return false;
+	}
+
+	float getCargoState(int ZoneType, int ZoneMashineNumber)
+	{
+		String cargoStr = ZoneType + "-" + ZoneMashineNumber;
+		return notesCargo[cargoStr].GetFloat();
+	}
+
+	void updateCargoState(int ZoneType, int ZoneMashineNumber, float deltaState)
+	{
+		String cargoStr = ZoneType + "-" + ZoneMashineNumber;
+		notesCargo[cargoStr] = notesCargo[cargoStr].GetFloat() - deltaState;
+
+		log.Warning(notesCargo[cargoStr].GetFloat() + " " + deltaState);
+
+		if (notesCargo[cargoStr].GetFloat() < .0f)
+			notesCargo[cargoStr] = .0f;
+	}
+
+	void loseBox(int ZoneType, int ZoneMashineNumber)
+	{
+		String cargoStr = ZoneType + "-" + ZoneMashineNumber;
+		notesCargo[cargoStr] = notesCargo[cargoStr].GetFloat() - 100.0f;
+
+		if (notesCargo[cargoStr].GetFloat() < .0f)
+			notesCargo[cargoStr] = .0f;
+	}
+}
+
+Dispetcher dispetcher;
+
+uint boxCount = 0;
+
 class ZoneGet : ScriptObject
 {
 	String getBoxNodeName;
 
-	private uint boxCount = 0;
 	private int zoneType = 0;
 
 	void DelayedStart()
@@ -19,18 +66,31 @@ class ZoneGet : ScriptObject
 		node.GetComponents("StaticSprite2D")[zoneType].enabled = true;
 	}
 
+	void Update(float timeStep)
+	{
+		dispetcher.updateCargoState(node.vars["ZoneType"].GetInt(), node.vars["ZoneMashineNumber"].GetInt(), timeStep * 5.0f);
+		float cargoState = dispetcher.getCargoState(node.vars["ZoneType"].GetFloat(), node.vars["ZoneMashineNumber"].GetInt());
+
+		Node@ nodeProgress = node.GetChild("ZoneGetProgress");
+		nodeProgress.scale2D = Vector2(cargoState / 100.f, 0.2);
+	}
+
 	void HandleCollisionStart(StringHash eventType, VariantMap& eventData)
 	{
 		Node@ nodeA = eventData["NodeA"].GetPtr();
 		Node@ nodeB = eventData["NodeB"].GetPtr();
+		if (nodeA !is node) return;
 
 		if ( nodeA.name == node.name and nodeB.name == getBoxNodeName and nodeA.vars["ZoneType"].GetInt() == nodeB.vars["boxType"].GetInt() )
 		{
-			GameLogicMenuFunc_updateBoxCount(++boxCount);
-
-			if (boxCount == 4)
+			if (dispetcher.canIGetThisBox(nodeA.vars["ZoneType"].GetInt(), nodeA.vars["ZoneMashineNumber"].GetInt()))
 			{
-				GameLogicEventFunc_nextLevel();
+				GameLogicMenuFunc_updateBoxCount(++boxCount);
+
+				if (boxCount == 400)
+				{
+					GameLogicEventFunc_nextLevel();
+				}
 			}
 		}
 	}
@@ -39,9 +99,11 @@ class ZoneGet : ScriptObject
 	{
 		Node@ nodeA = eventData["NodeA"].GetPtr();
 		Node@ nodeB = eventData["NodeB"].GetPtr();
+		if (nodeA !is node) return;
 
 		if ( nodeA.name == node.name and nodeB.name == getBoxNodeName and nodeA.vars["ZoneType"].GetInt() == nodeB.vars["boxType"].GetInt() )
 		{
+			dispetcher.loseBox(nodeA.vars["ZoneType"].GetInt(), nodeA.vars["ZoneMashineNumber"].GetInt());
 			GameLogicMenuFunc_updateBoxCount(--boxCount);
 		}
 	}

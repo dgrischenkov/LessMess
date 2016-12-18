@@ -16,6 +16,12 @@ class ProxyNode : ScriptObject
 	        }
 	        newNode.temporary = true;
 	    }
+
+	    for (uint i = 0; i < node.vars.values.length; ++i)
+	    {
+	    	StringHash shash = node.vars.keys[i];
+	    	newNode.vars[shash] = node.vars.values[i];
+	    }
 	}
 
     void FixedUpdate(float timeStep)

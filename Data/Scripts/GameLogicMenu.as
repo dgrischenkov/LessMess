@@ -7,6 +7,7 @@ class GameLogicMenu : GameLogic
 	private UIElement@ uielement_;
 	private UIElement@ buttonPlay_;
 	private UIElement@ buttonExit_;
+	private Text@ textScoreCount_;
 
 	GameLogicMenu(Scene@ scene)
 	{
@@ -37,12 +38,28 @@ class GameLogicMenu : GameLogic
 	    {
 	        input.mouseVisible = false;
 	        ui.root.RemoveChild(uielement_);
+
+		    XMLFile@ xmlfile = cache.GetResource("XMLFile", "Data/UI/ScoreBar.xml");
+		    XMLFile@ xmlfileStyle = cache.GetResource("XMLFile", "Data/UI/DefaultStyle.xml");
+		    uielement_ = ui.LoadLayout(xmlfile, xmlfileStyle);
+		    ui.root.AddChild(uielement_);
+
+		    textScoreCount_ = uielement_.GetChild("TextScoreCount", true);
+
 			GameLogic_sceneLoad(scene_, "Scenes/Level01.xml");
 	    }
 
 	    if (edit is buttonExit_)
 	    {
 	        engine.Exit();
+	    }
+	}
+
+	void InnerEvent(StringHash eventType, VariantMap& eventData)
+	{
+	    if (eventData.Contains("boxCount"))
+	    {
+	    	textScoreCount_.text = eventData["boxCount"].GetUInt();
 	    }
 	}
 }

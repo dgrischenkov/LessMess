@@ -1,4 +1,5 @@
 #include "Scripts/GameLogicEventFunc.as"
+#include "Scripts/GameLogicMenuFunc.as"
 
 class ZoneGet : ScriptObject
 {
@@ -10,6 +11,7 @@ class ZoneGet : ScriptObject
 	{
 	    SubscribeToEvent("PhysicsBeginContact2D", "HandleCollisionStart");
 	    SubscribeToEvent("PhysicsEndContact2D", "HandleCollisionEnd");
+		GameLogicMenuFunc_updateBoxCount(0);
 	}
 
 	void HandleCollisionStart(StringHash eventType, VariantMap& eventData)
@@ -19,9 +21,9 @@ class ZoneGet : ScriptObject
 
 		if ( nodeA.name == node.name and nodeB.name == getBoxNodeName )
 		{
-			++boxCount;
+			GameLogicMenuFunc_updateBoxCount(++boxCount);
 
-			if (boxCount == 1)
+			if (boxCount == 4)
 			{
 				GameLogicEventFunc_nextLevel();
 			}
@@ -33,6 +35,9 @@ class ZoneGet : ScriptObject
 		Node@ nodeA = eventData["NodeA"].GetPtr();
 		Node@ nodeB = eventData["NodeB"].GetPtr();
 
-		if ( nodeA.name == node.name and nodeB.name == getBoxNodeName ) { --boxCount; }
+		if ( nodeA.name == node.name and nodeB.name == getBoxNodeName )
+		{
+			GameLogicMenuFunc_updateBoxCount(--boxCount);
+		}
 	}
 }

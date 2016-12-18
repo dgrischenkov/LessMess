@@ -38,9 +38,12 @@ class ZoneSpawn : ScriptObject
 		    if (doSpawn and (xmlfile !is null))
 		    {
 		        Node@ newNode = scene.CreateChild();
+		        int boxType = RandomInt(3);
 		        if (newNode.LoadXML(xmlfile.GetRoot(), true))
 		        {
 					newNode.SetTransform(node.position, node.rotation);		        	
+					newNode.GetComponents("StaticSprite2D")[boxType].enabled = true;
+					newNode.vars["boxType"] = boxType;
 		        }
 		        newNode.temporary = true;
 	    	}

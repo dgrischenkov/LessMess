@@ -7,8 +7,8 @@
 	<attribute name="Elapsed Time" value="40.0748" />
 	<attribute name="Next Replicated Node ID" value="45" />
 	<attribute name="Next Replicated Component ID" value="131" />
-	<attribute name="Next Local Node ID" value="16777352" />
-	<attribute name="Next Local Component ID" value="16778836" />
+	<attribute name="Next Local Node ID" value="16777355" />
+	<attribute name="Next Local Component ID" value="16778872" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<component type="Octree" id="1" />
@@ -78,8 +78,8 @@
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="PlayerVehicle" />
 		<attribute name="Tags" />
-		<attribute name="Position" value="4.7818 -3.72779 0" />
-		<attribute name="Rotation" value="0.991445 0 0 -0.130526" />
+		<attribute name="Position" value="3.63098 -3.41943 0" />
+		<attribute name="Rotation" value="0.487761 0 0 -0.872978" />
 		<attribute name="Scale" value="1.1 1.1 1" />
 		<attribute name="Variables" />
 		<component type="ScriptInstance" id="51">

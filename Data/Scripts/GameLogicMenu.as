@@ -1,18 +1,16 @@
-#include "Utils.as"
+#include "GameLogic.as"
 
-class GameLogicMenu
+class GameLogicMenu : GameLogic
 {
 	private Scene@ scene_;
-	private Node@ node_;
 
 	private UIElement@ uielement_;
 	private UIElement@ buttonPlay_;
 	private UIElement@ buttonExit_;
 
-	GameLogicMenu(Scene@ scene, Node@ node)
+	GameLogicMenu(Scene@ scene)
 	{
 		scene_ = scene;
-		node_ = node;
 
 	    input.mouseVisible = true;
 
@@ -39,7 +37,7 @@ class GameLogicMenu
 	    {
 	        input.mouseVisible = false;
 	        ui.root.RemoveChild(uielement_);
-			Utils_sceneLoad(scene_, node_, "Scenes/Level01.xml");
+			GameLogic_sceneLoad(scene_, "Scenes/Level01.xml");
 	    }
 
 	    if (edit is buttonExit_)

@@ -1,8 +1,12 @@
 #include "common.as"
-#include "Utils.as"
+
+#include "Scripts/GameLogicMenu.as"
+#include "Scripts/GameLogicEvent.as"
 
 Scene@ global_scene;
-Node@ nodeLogic;
+
+GameLogicMenu@ gameLogicMenu;
+GameLogicEvent@ gameLogicEvent;
 
 void Start()
 {
@@ -11,14 +15,17 @@ void Start()
     SampleStart();
 
     global_scene = Scene();
-
-    {
-        nodeLogic = global_scene.CreateChild("GameLogic");
-        ScriptInstance@ scriptInstance = nodeLogic.CreateComponent("ScriptInstance");
-        scriptInstance.CreateObject(cache.GetResource("ScriptFile", "Scripts/GameLogic.as"), "GameLogic");
-    }
+    gameLogicMenu = GameLogicMenu(global_scene);
+    gameLogicEvent = GameLogicEvent(global_scene);
 
     SubscribeToEvent("PostRenderUpdate", "HandlePostRenderUpdate");
+    SubscribeToEvent("innerEvent", "HandleInnerEvent");
+}
+
+void HandleInnerEvent(StringHash eventType, VariantMap& eventData)
+{
+    gameLogicMenu.InnerEvent(eventType, eventData);
+    gameLogicEvent.InnerEvent(eventType, eventData);
 }
 
 void HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData)

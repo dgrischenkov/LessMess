@@ -1,15 +1,12 @@
-#include "Scripts/GameLogicMenu.as"
-#include "Scripts/GameLogicEvent.as"
-#include "Scripts/GameLogicEventFunc.as"
-
-class GameLogic : ScriptObject
+void GameLogic_sceneLoad(Scene@ scene, const String& sourceXML)
 {
-	GameLogicMenu@ gameLogicMenu;
-	GameLogicEvent@ gameLogicEvent;
+	scene.LoadXML(cache.GetFile(sourceXML));
+    renderer.viewports[0] = Viewport(scene, scene.GetChild("PlayerCamera").GetComponent("Camera"));
+}
 
-	void Start()
+class GameLogic
+{
+	void InnerEvent(StringHash eventType, VariantMap& eventData)
 	{
-		gameLogicMenu = GameLogicMenu(scene, node);
-		gameLogicEvent = GameLogicEvent(scene, node);
 	}
 }

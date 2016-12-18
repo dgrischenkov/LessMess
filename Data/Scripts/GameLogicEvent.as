@@ -1,23 +1,22 @@
-#include "Utils.as"
+#include "GameLogic.as"
 
-class GameLogicEvent
+class GameLogicEvent : GameLogic
 {
 	private Scene@ scene_;
-	private Node@ node_;
+	private int currentLevel = 1;
 
-	GameLogicEvent(Scene@ scene, Node@ node)
+	GameLogicEvent(Scene@ scene)
 	{
 		scene_ = scene;
-		node_ = node;
-
-	    SubscribeToEvent("innerEvent", "HandleInnerEvent");
 	}
 
-	void HandleInnerEvent(StringHash eventType, VariantMap& eventData)
+	void InnerEvent(StringHash eventType, VariantMap& eventData)
 	{
+		++currentLevel;
+
 	    if (eventData["next_level"].GetBool())
 	    {
-	        Utils_sceneLoad(scene_, node_, "Scenes/Level02.xml");
+	        GameLogic_sceneLoad(scene_, "Scenes/Level0" + currentLevel + ".xml");
 	    }
 	}
 }

@@ -7,8 +7,8 @@
 	<attribute name="Elapsed Time" value="40.0748" />
 	<attribute name="Next Replicated Node ID" value="44" />
 	<attribute name="Next Replicated Component ID" value="130" />
-	<attribute name="Next Local Node ID" value="16777334" />
-	<attribute name="Next Local Component ID" value="16778620" />
+	<attribute name="Next Local Node ID" value="16777335" />
+	<attribute name="Next Local Component ID" value="16778632" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="ZoneType;ZoneMashineNumber" />
 	<component type="Octree" id="1" />
@@ -58,6 +58,7 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/PlayerCamera.as" />
 			<attribute name="Class Name" value="PlayerCamera" />
 			<attribute name="playerNodeName" value="PlayerVehicle" />
+			<attribute name="rotateEnable" value="true" />
 			<attribute name="positionFactor" value="100" />
 			<attribute name="rotationFactor" value="0.0001" />
 		</component>

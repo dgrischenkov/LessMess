@@ -58,7 +58,7 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/PlayerCamera.as" />
 			<attribute name="Class Name" value="PlayerCamera" />
 			<attribute name="playerNodeName" value="PlayerVehicle" />
-			<attribute name="rotateEnable" value="true" />
+			<attribute name="rotateEnable" value="false" />
 			<attribute name="positionFactor" value="100" />
 			<attribute name="rotationFactor" value="0.0001" />
 		</component>

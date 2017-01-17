@@ -1,6 +1,13 @@
 #include "Scripts/GameLogicEventFunc.as"
 #include "Scripts/GameLogicMenuFunc.as"
 
+const String Color_Red = "box_red";
+const String Color_Green = "box_green";
+const String Color_Blue = "box_blue";
+
+const String CargoName_A = "A";
+const String CargoName_B = "B";
+
 class Dispetcher
 {
 	VariantMap notesCargo;
@@ -28,8 +35,6 @@ class Dispetcher
 	{
 		String cargoStr = ZoneType + "-" + ZoneMashineNumber;
 		notesCargo[cargoStr] = notesCargo[cargoStr].GetFloat() - deltaState;
-
-		log.Warning(notesCargo[cargoStr].GetFloat() + " " + deltaState);
 
 		if (notesCargo[cargoStr].GetFloat() < .0f)
 			notesCargo[cargoStr] = .0f;
@@ -114,6 +119,10 @@ class ZoneSpawn : ScriptObject
 	String spawnBoxXML;
 	String spawnBoxNodeName;
 
+	// setup this as node vars:
+	// String spawnBoxColor;
+	// String spawnBoxCargoName;
+
 	private Timer timer;
 	private XMLFile@ xmlfile;
 	private bool doSpawn = true;
@@ -149,15 +158,70 @@ class ZoneSpawn : ScriptObject
 		    if (doSpawn and (xmlfile !is null))
 		    {
 		        Node@ newNode = scene.CreateChild();
-		        int boxType = RandomInt(3);
 		        if (newNode.LoadXML(xmlfile.GetRoot(), true))
 		        {
-					newNode.SetTransform(node.position, node.rotation);		        	
-					newNode.GetComponents("StaticSprite2D")[boxType].enabled = true;
-					newNode.vars["boxType"] = boxType;
+					newNode.SetTransform(node.position, node.rotation);
+					cast<CargoBox>(newNode.scriptObject).setProperties(
+						node.vars["spawnBoxColor"].ToString(),
+						node.vars["spawnBoxCargoName"].ToString());
 		        }
 		        newNode.temporary = true;
 	    	}
 	    }
+	}
+}
+
+class CargoBox : ScriptObject
+{
+	private String boxColor;
+	private String boxCargoName;
+	private int portions = 0;
+
+	void DelayedStart()
+	{
+		if (boxColor == Color_Red) portions = 10;
+		else if (boxColor == Color_Green) portions = 20;
+		else if (boxColor == Color_Blue) portions = 6;
+	}
+
+	void setProperties(String boxColor_, String boxCargoName_)
+	{
+
+		boxColor = boxColor_;
+		boxCargoName = boxCargoName_;
+
+		int boxType = 0;
+
+		if (boxColor == Color_Red) boxType = 0;
+		else if (boxColor == Color_Green) boxType = 1;
+		else if (boxColor == Color_Blue) boxType = 2;
+
+		node.GetComponents("StaticSprite2D")[boxType].enabled = true;
+
+		if (boxCargoName == CargoName_A) boxType = 3;
+		else if (boxCargoName == CargoName_B) boxType = 4;
+
+		node.GetComponents("StaticSprite2D")[boxType].enabled = true;
+		node.GetComponents("StaticSprite2D")[boxType].enabled = true;
+	}
+
+	bool isEmpty()
+	{
+		return portions == 0 ? true : false;
+	}
+
+	void decrasePortions()
+	{
+		--portions;
+	}
+
+	String getColor()
+	{
+		return boxColor;
+	}
+
+	String getCargoName()
+	{
+		return boxCargoName;
 	}
 }

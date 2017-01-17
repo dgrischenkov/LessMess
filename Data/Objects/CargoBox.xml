@@ -35,4 +35,19 @@
 		<attribute name="Order in Layer" value="200" />
 		<attribute name="Sprite" value="Sprite2D;Textures/box2.png" />
 	</component>
+	<component type="ScriptInstance" id="134">
+		<attribute name="Delayed Method Calls" value="0" />
+		<attribute name="Script File" value="ScriptFile;Scripts/ZoneLogic.as" />
+		<attribute name="Class Name" value="CargoBox" />
+	</component>
+	<component type="StaticSprite2D" id="135">
+		<attribute name="Is Enabled" value="false" />
+		<attribute name="Order in Layer" value="210" />
+		<attribute name="Sprite" value="Sprite2D;Textures/boxA.png" />
+	</component>
+	<component type="StaticSprite2D" id="136">
+		<attribute name="Is Enabled" value="false" />
+		<attribute name="Order in Layer" value="210" />
+		<attribute name="Sprite" value="Sprite2D;Textures/boxB.png" />
+	</component>
 </node>

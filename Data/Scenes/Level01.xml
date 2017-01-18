@@ -7,10 +7,10 @@
 	<attribute name="Elapsed Time" value="40.0748" />
 	<attribute name="Next Replicated Node ID" value="49" />
 	<attribute name="Next Replicated Component ID" value="135" />
-	<attribute name="Next Local Node ID" value="16777339" />
-	<attribute name="Next Local Component ID" value="16778680" />
+	<attribute name="Next Local Node ID" value="16777344" />
+	<attribute name="Next Local Component ID" value="16778740" />
 	<attribute name="Variables" />
-	<attribute name="Variable Names" value="ZoneType;ZoneMashineNumber;spawnBoxColor;spawnBoxCargoName" />
+	<attribute name="Variable Names" value="spawnBoxColor;spawnBoxCargoName;secondsPerProduct;powerRed;powerGreen;powerBlue;zoneNodeName0;zoneNodeName1;zoneNodeName2;zoneNodeName3;zoneNodeName4;zoneNodeName5;zoneNodeName6;zoneNodeName7;ZoneColor;ZoneCargoName" />
 	<component type="Octree" id="1" />
 	<component type="DebugRenderer" id="2" />
 	<component type="Renderer2D" id="4" />
@@ -92,13 +92,24 @@
 	</node>
 	<node id="14">
 		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="Mashine" />
+		<attribute name="Name" value="Mashine_One" />
 		<attribute name="Tags" />
 		<attribute name="Position" value="-2.58198 0.381634 0" />
 		<attribute name="Rotation" value="0.982559 0 0 0.18595" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables">
-			<variant hash="4104389588" type="Int" value="1" />
+			<variant hash="1546395985" type="Float" value="7.4" />
+			<variant hash="1070519020" type="Int" value="2" />
+			<variant hash="2286930526" type="Int" value="2" />
+			<variant hash="2716355903" type="Int" value="1" />
+			<variant hash="225460183" type="String" value="ZoneGet_RA" />
+			<variant hash="225460184" type="String" value="ZoneGet_GB" />
+			<variant hash="225460185" type="String" value="ZoneGet_BB" />
+			<variant hash="225460186" type="String" value="" />
+			<variant hash="225460187" type="String" value="" />
+			<variant hash="225460188" type="String" value="" />
+			<variant hash="225460189" type="String" value="" />
+			<variant hash="225460190" type="String" value="" />
 		</attribute>
 		<component type="ScriptInstance" id="56">
 			<attribute name="Delayed Method Calls" value="0" />
@@ -532,14 +543,14 @@
 	</node>
 	<node id="41">
 		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="ZoneGet" />
+		<attribute name="Name" value="ZoneGet_RA" />
 		<attribute name="Tags" />
 		<attribute name="Position" value="-4.20321 2.14384 0" />
 		<attribute name="Rotation" value="0.668743 0 0 0.743493" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables">
-			<variant hash="930834918" type="Int" value="0" />
-			<variant hash="4104389588" type="Int" value="1" />
+			<variant hash="3143654903" type="String" value="box_red" />
+			<variant hash="2381540283" type="String" value="A" />
 		</attribute>
 		<component type="ScriptInstance" id="127">
 			<attribute name="Delayed Method Calls" value="0" />
@@ -550,14 +561,14 @@
 	</node>
 	<node id="42">
 		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="ZoneGet" />
+		<attribute name="Name" value="ZoneGet_GB" />
 		<attribute name="Tags" />
 		<attribute name="Position" value="-3.84292 -0.00408182 0" />
 		<attribute name="Rotation" value="0.949314 0 0 0.314327" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables">
-			<variant hash="930834918" type="Int" value="1" />
-			<variant hash="4104389588" type="Int" value="1" />
+			<variant hash="3143654903" type="String" value="box_green" />
+			<variant hash="2381540283" type="String" value="B" />
 		</attribute>
 		<component type="ScriptInstance" id="128">
 			<attribute name="Delayed Method Calls" value="0" />
@@ -568,14 +579,14 @@
 	</node>
 	<node id="43">
 		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="ZoneGet" />
+		<attribute name="Name" value="ZoneGet_BB" />
 		<attribute name="Tags" />
 		<attribute name="Position" value="-3.77978 -1.29306 0" />
 		<attribute name="Rotation" value="0.783178 0 0 0.621799" />
-		<attribute name="Scale" value="0.999998 0.999998 1" />
+		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables">
-			<variant hash="930834918" type="Int" value="2" />
-			<variant hash="4104389588" type="Int" value="1" />
+			<variant hash="3143654903" type="String" value="box_blue" />
+			<variant hash="2381540283" type="String" value="B" />
 		</attribute>
 		<component type="ScriptInstance" id="129">
 			<attribute name="Delayed Method Calls" value="0" />

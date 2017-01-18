@@ -50,4 +50,19 @@
 		<attribute name="Order in Layer" value="210" />
 		<attribute name="Sprite" value="Sprite2D;Textures/boxB.png" />
 	</component>
+	<component type="Text3D" id="137">
+		<attribute name="Font" value="Font;Fonts/BlueHighway.ttf" />
+		<attribute name="Font Size" value="9" />
+		<attribute name="Text" value="CargoBox" />
+		<attribute name="Text Alignment" value="Center" />
+		<attribute name="Face Camera Mode" value="Rotate XYZ" />
+		<attribute name="Width" value="50" />
+		<attribute name="Horiz Alignment" value="Center" />
+		<attribute name="Vert Alignment" value="Center" />
+		<attribute name="Color" value="0 1 1 1" />
+		<attribute name="Top Left Color" value="0 1 1 1" />
+		<attribute name="Bottom Right Color" value="1 0 1 1" />
+		<attribute name="Text Effect" value="Stroke" />
+		<attribute name="Round Stroke" value="true" />
+	</component>
 </node>

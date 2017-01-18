@@ -14,7 +14,6 @@ class ProxyNode : ScriptObject
 	            newNode.SetTransform(node.position, node.rotation);
 	            log.Info("ProxyNode: load successful, filename \"" + sourceXML + "\"");
 	        }
-	        newNode.temporary = true;
 	    }
 
 	    for (uint i = 0; i < node.vars.values.length; ++i)
@@ -24,12 +23,7 @@ class ProxyNode : ScriptObject
 	    }
 
 	    newNode.name = node.name;
-	}
 
-    void FixedUpdate(float timeStep)
-    {
-    	node.position = newNode.position;
-    	node.rotation = newNode.rotation;
-    	node.scale = newNode.scale;
+	    scene.RemoveChild(node);
 	}
 }

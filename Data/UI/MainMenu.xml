@@ -1,26 +1,39 @@
 <?xml version="1.0"?>
 <element type="Window">
 	<attribute name="Name" value="MainMenu" />
-	<attribute name="Size" value="800 600" />
+	<attribute name="Size" value="800 450" />
 	<attribute name="Horiz Alignment" value="Center" />
 	<attribute name="Vert Alignment" value="Center" />
-	<element type="Button">
-		<attribute name="Name" value="Button_play" />
-		<attribute name="Position" value="0 -70" />
-		<attribute name="Size" value="300 50" />
+	<attribute name="Texture" value="Texture2D;Textures/fon.jpg" />
+	<attribute name="Image Rect" value="0 0 1150 639" />
+	<element type="Window">
+		<attribute name="Name" value="ShadowFrame" />
+		<attribute name="Size" value="600 333" />
 		<attribute name="Horiz Alignment" value="Center" />
 		<attribute name="Vert Alignment" value="Center" />
-		<attribute name="Texture" value="Texture2D;Textures/button_play.png" />
-		<attribute name="Image Rect" value="0 0 300 50" />
-		<attribute name="Hover Image Offset" value="0 1" />
+		<attribute name="Opacity" value="0.5" />
 	</element>
 	<element type="Button">
 		<attribute name="Name" value="Button_exit" />
-		<attribute name="Size" value="300 50" />
+		<attribute name="Size" value="340 55" />
 		<attribute name="Horiz Alignment" value="Center" />
 		<attribute name="Vert Alignment" value="Center" />
-		<attribute name="Texture" value="Texture2D;Textures/button_exit.png" />
-		<attribute name="Image Rect" value="0 0 300 50" />
-		<attribute name="Hover Image Offset" value="0 1" />
+		<attribute name="Opacity" value="0.95" />
+		<attribute name="Texture" value="Texture2D;Textures/button_exit_0.png" />
+		<attribute name="Image Rect" value="0 0 340 55" />
+		<attribute name="Border" value="0 0 0 0" />
+		<attribute name="Hover Image Offset" value="-1 1" />
+	</element>
+	<element type="Button">
+		<attribute name="Name" value="Button_play" />
+		<attribute name="Position" value="0 -70" />
+		<attribute name="Size" value="340 55" />
+		<attribute name="Horiz Alignment" value="Center" />
+		<attribute name="Vert Alignment" value="Center" />
+		<attribute name="Opacity" value="0.95" />
+		<attribute name="Texture" value="Texture2D;Textures/button_play_0.png" />
+		<attribute name="Image Rect" value="0 0 340 55" />
+		<attribute name="Border" value="0 0 0 0" />
+		<attribute name="Hover Image Offset" value="-1 1" />
 	</element>
 </element>

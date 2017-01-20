@@ -7,8 +7,8 @@
 	<attribute name="Elapsed Time" value="40.0748" />
 	<attribute name="Next Replicated Node ID" value="49" />
 	<attribute name="Next Replicated Component ID" value="135" />
-	<attribute name="Next Local Node ID" value="16777344" />
-	<attribute name="Next Local Component ID" value="16778740" />
+	<attribute name="Next Local Node ID" value="16777345" />
+	<attribute name="Next Local Component ID" value="16778752" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="spawnBoxColor;spawnBoxCargoName;secondsPerProduct;powerRed;powerGreen;powerBlue;zoneNodeName0;zoneNodeName1;zoneNodeName2;zoneNodeName3;zoneNodeName4;zoneNodeName5;zoneNodeName6;zoneNodeName7;ZoneColor;ZoneCargoName" />
 	<component type="Octree" id="1" />
@@ -72,7 +72,7 @@
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
 		<component type="StaticSprite2D" id="5">
-			<attribute name="Sprite" value="Sprite2D;Textures/fon.png" />
+			<attribute name="Sprite" value="Sprite2D;Textures/flor.jpg" />
 		</component>
 	</node>
 	<node id="12">

@@ -50,7 +50,7 @@ void SampleStart()
         SubscribeToEvent("TouchBegin", "HandleTouchBegin");
 
     // Create logo
-    CreateLogo();
+    // CreateLogo();
 
     // Set custom window Title & Icon
     SetWindowTitleAndIcon();

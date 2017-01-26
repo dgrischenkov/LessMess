@@ -1,62 +1,34 @@
-#include "Scripts/ZoneCommon.as"
+#include "Scripts/ProxyNode.as"
 
-class CargoBox : ScriptObject
+mixin class CargoBox_mx
 {
-	private String boxColor;
-	private String boxCargoName;
-	private int portions = 0;
-	private int portionsCurrent = 0;
+	String cargoName;
+	int cargoSpriteNumber;
+	int capacityTotal;
+	int capacityCurrent;
+}
 
+class CargoBox_px : ProxyNode, CargoBox_mx
+{
+	void copyMixinPart(ScriptObject@ newScriptObject, ScriptObject@ scriptObject)
+	{
+		cast<CargoBox>(newScriptObject).cargoName = cast<CargoBox_px>(scriptObject).cargoName;
+		cast<CargoBox>(newScriptObject).cargoSpriteNumber = cast<CargoBox_px>(scriptObject).cargoSpriteNumber;
+		cast<CargoBox>(newScriptObject).capacityTotal = cast<CargoBox_px>(scriptObject).capacityTotal;
+		cast<CargoBox>(newScriptObject).capacityCurrent = cast<CargoBox_px>(scriptObject).capacityCurrent;
+	}
+}
+
+shared class CargoBox : ScriptObject, CargoBox_mx
+{
 	void DelayedStart()
 	{
-		if (boxColor == Color_Red) portionsCurrent = portions = 10;
-		else if (boxColor == Color_Green) portionsCurrent = portions = 20;
-		else if (boxColor == Color_Blue) portionsCurrent = portions = 6;
-	}
-
-	void setProperties(String boxColor_, String boxCargoName_)
-	{
-		boxColor = boxColor_;
-		boxCargoName = boxCargoName_;
-
-		int boxType = 0;
-
-		if (boxColor == Color_Red) boxType = 0;
-		else if (boxColor == Color_Green) boxType = 1;
-		else if (boxColor == Color_Blue) boxType = 2;
-
-		node.GetComponents("StaticSprite2D")[boxType].enabled = true;
-
-		if (boxCargoName == CargoName_A) boxType = 3;
-		else if (boxCargoName == CargoName_B) boxType = 4;
-
-		node.GetComponents("StaticSprite2D")[boxType].enabled = true;
-		node.GetComponents("StaticSprite2D")[boxType].enabled = true;
+		node.GetComponents("StaticSprite2D")[cargoSpriteNumber].enabled = true;
 	}
 
     void Update(float timeStep)
     {
 		Text3D@ t = node.GetComponents("Text3D")[0];
-        t.text = boxColor + " / " + boxCargoName + "\n" + portionsCurrent + " / " + portions;
+        t.text = cargoName + ": " + capacityCurrent + " / " + capacityTotal;
     }
-
-	bool isEmpty()
-	{
-		return portionsCurrent <= 0 ? true : false;
-	}
-
-	void decrasePortions(int power)
-	{
-		portionsCurrent -= power;
-	}
-
-	String getColor()
-	{
-		return boxColor;
-	}
-
-	String getCargoName()
-	{
-		return boxCargoName;
-	}
 }

@@ -1,15 +1,23 @@
-#include "Scripts/ZoneCommon.as"
+#include "Scripts/ProxyNode.as"
 
-
-class ZoneSpawn : ScriptObject
+mixin class ZoneSpawn_mx
 {
-	String spawnBoxXML;
-	String spawnBoxNodeName;
-	String spawnBoxCargoName;
+	String spawnBoxXML = "Objects/CargoBox_XX.xml";
+}
 
+class ZoneSpawn_px : ProxyNode, ZoneSpawn_mx
+{
+	void copyMixinPart(ScriptObject@ newScriptObject, ScriptObject@ scriptObject)
+	{
+		cast<ZoneSpawn>(newScriptObject).spawnBoxXML = cast<ZoneSpawn_px>(scriptObject).spawnBoxXML;
+	}
+}
+
+class ZoneSpawn : ScriptObject, ZoneSpawn_mx
+{
 	private Timer timer;
 	private XMLFile@ xmlfile;
-	private bool doSpawn = true;
+	private bool needSpawn = true;
 
 	void DelayedStart()
 	{
@@ -21,36 +29,31 @@ class ZoneSpawn : ScriptObject
 	void HandleCollisionStart(StringHash eventType, VariantMap& eventData)
 	{
 		Node@ nodeA = eventData["NodeA"].GetPtr();
-		Node@ nodeB = eventData["NodeB"].GetPtr();
-
-		if ( nodeA.name == node.name and nodeB.name == spawnBoxNodeName ) { doSpawn = false; }
+		if ( nodeA is node ) { needSpawn = false; }
 	}
 
 	void HandleCollisionEnd(StringHash eventType, VariantMap& eventData)
 	{
 		Node@ nodeA = eventData["NodeA"].GetPtr();
-		Node@ nodeB = eventData["NodeB"].GetPtr();
-
-		if ( nodeA.name == node.name and nodeB.name == spawnBoxNodeName ) { doSpawn = true; }
+		if ( nodeA is node ) { needSpawn = true; }
 	}
 
     void FixedUpdate(float timeStep)
     {
-    	if ( timer.GetMSec(false) > 2000 )
+    	if ( timer.GetMSec(false) > 4000 )
     	{
     		timer.Reset();
-		    if (doSpawn and (xmlfile !is null))
-		    {
-		        Node@ newNode = scene.CreateChild();
-		        if (newNode.LoadXML(xmlfile.GetRoot(), true))
-		        {
-					newNode.SetTransform(node.position, node.rotation);
-					cast<CargoBox>(newNode.scriptObject).setProperties(
-						node.vars["spawnBoxColor"].ToString(),
-						node.vars["spawnBoxCargoName"].ToString());
-		        }
-		        newNode.temporary = true;
-	    	}
+		    if (needSpawn and (xmlfile !is null))
+		    	doSpawn();
 	    }
+	}
+
+	private void doSpawn()
+	{
+        Node@ newNode = scene.CreateChild();
+        newNode.temporary = true;
+
+        if (newNode.LoadXML(xmlfile.GetRoot(), true))
+			newNode.SetTransform(node.position, node.rotation);
 	}
 }

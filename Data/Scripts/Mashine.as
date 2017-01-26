@@ -1,102 +1,115 @@
-#include "Scripts/ZoneCommon.as"
+#include "Scripts/ProxyNode.as"
+#include "Scripts/CargoBox.as"
+#include "Scripts/ZoneGet.as"
 
-class Mashine : ScriptObject
+mixin class Mashine_mx
 {
 	float secondsPerProduct = 7.5f;
 
-	int powerRed = 1;
-	int powerGreen = 1;
-	int powerBlue = 1;
+	Node@ zoneNode0;
+	Node@ zoneNode1;
+	Node@ zoneNode2;
+	Node@ zoneNode3;
 
-	String zoneNodeName0;
-	String zoneNodeName1;
-	String zoneNodeName2;
-	String zoneNodeName3;
-	String zoneNodeName4;
-	String zoneNodeName5;
-	String zoneNodeName6;
-	String zoneNodeName7;
+	Node@ zoneNode4;
+	Node@ zoneNode5;
+	Node@ zoneNode6;
+	Node@ zoneNode7;
+}
 
-	private Array<Node@> zoneNodes;
+class Mashine_px : ProxyNode, Mashine_mx
+{
+	void copyMixinPart(ScriptObject@ newScriptObject, ScriptObject@ scriptObject)
+	{
+		cast<Mashine>(newScriptObject).secondsPerProduct = cast<Mashine_px>(scriptObject).secondsPerProduct;
+
+		if ( cast<Mashine_px>(scriptObject).zoneNode0 !is null ) cast<Mashine>(newScriptObject).zoneNode0 = cast<Mashine_px>(scriptObject).zoneNode0.vars["proxyFor"].GetPtr();
+		if ( cast<Mashine_px>(scriptObject).zoneNode1 !is null ) cast<Mashine>(newScriptObject).zoneNode1 = cast<Mashine_px>(scriptObject).zoneNode1.vars["proxyFor"].GetPtr();
+		if ( cast<Mashine_px>(scriptObject).zoneNode2 !is null ) cast<Mashine>(newScriptObject).zoneNode2 = cast<Mashine_px>(scriptObject).zoneNode2.vars["proxyFor"].GetPtr();
+		if ( cast<Mashine_px>(scriptObject).zoneNode3 !is null ) cast<Mashine>(newScriptObject).zoneNode3 = cast<Mashine_px>(scriptObject).zoneNode3.vars["proxyFor"].GetPtr();
+
+		if ( cast<Mashine_px>(scriptObject).zoneNode4 !is null ) cast<Mashine>(newScriptObject).zoneNode4 = cast<Mashine_px>(scriptObject).zoneNode4.vars["proxyFor"].GetPtr();
+		if ( cast<Mashine_px>(scriptObject).zoneNode5 !is null ) cast<Mashine>(newScriptObject).zoneNode5 = cast<Mashine_px>(scriptObject).zoneNode5.vars["proxyFor"].GetPtr();
+		if ( cast<Mashine_px>(scriptObject).zoneNode6 !is null ) cast<Mashine>(newScriptObject).zoneNode6 = cast<Mashine_px>(scriptObject).zoneNode6.vars["proxyFor"].GetPtr();
+		if ( cast<Mashine_px>(scriptObject).zoneNode7 !is null ) cast<Mashine>(newScriptObject).zoneNode7 = cast<Mashine_px>(scriptObject).zoneNode7.vars["proxyFor"].GetPtr();
+	}
+}
+
+class Mashine : ScriptObject, Mashine_mx
+{
+	private Array<ZoneGet@> zoneGetArray;
 	private float currentSecondsPerProduct;
 
 	void DelayedStart()
 	{
-		secondsPerProduct = node.vars["secondsPerProduct"].GetFloat();
-		powerRed = node.vars["powerRed"].GetInt();
-		powerGreen = node.vars["powerGreen"].GetInt();
-		powerBlue = node.vars["powerBlue"].GetInt();
+		if (zoneNode0 !is null) zoneGetArray.Push(cast<ZoneGet>(zoneNode0.scriptObject));
+		if (zoneNode1 !is null) zoneGetArray.Push(cast<ZoneGet>(zoneNode1.scriptObject));
+		if (zoneNode2 !is null) zoneGetArray.Push(cast<ZoneGet>(zoneNode2.scriptObject));
+		if (zoneNode3 !is null) zoneGetArray.Push(cast<ZoneGet>(zoneNode3.scriptObject));
 
-		zoneNodeName0 = node.vars["zoneNodeName0"].ToString();
-		zoneNodeName1 = node.vars["zoneNodeName1"].ToString();
-		zoneNodeName2 = node.vars["zoneNodeName2"].ToString();
-		zoneNodeName3 = node.vars["zoneNodeName3"].ToString();
-		zoneNodeName4 = node.vars["zoneNodeName4"].ToString();
-		zoneNodeName5 = node.vars["zoneNodeName5"].ToString();
-		zoneNodeName6 = node.vars["zoneNodeName6"].ToString();
-		zoneNodeName7 = node.vars["zoneNodeName7"].ToString();
-
-		Node@ node0 = scene.GetChild(zoneNodeName0);
-		Node@ node1 = scene.GetChild(zoneNodeName1);
-		Node@ node2 = scene.GetChild(zoneNodeName2);
-		Node@ node3 = scene.GetChild(zoneNodeName3);
-		Node@ node4 = scene.GetChild(zoneNodeName4);
-		Node@ node5 = scene.GetChild(zoneNodeName5);
-		Node@ node6 = scene.GetChild(zoneNodeName6);
-		Node@ node7 = scene.GetChild(zoneNodeName7);
-
-		if (node0 !is null) zoneNodes.Push(node0);
-		if (node1 !is null) zoneNodes.Push(node1);
-		if (node2 !is null) zoneNodes.Push(node2);
-		if (node3 !is null) zoneNodes.Push(node3);
-		if (node4 !is null) zoneNodes.Push(node4);
-		if (node5 !is null) zoneNodes.Push(node5);
-		if (node6 !is null) zoneNodes.Push(node6);
-		if (node7 !is null) zoneNodes.Push(node7);
+		if (zoneNode4 !is null) zoneGetArray.Push(cast<ZoneGet>(zoneNode4.scriptObject));
+		if (zoneNode5 !is null) zoneGetArray.Push(cast<ZoneGet>(zoneNode5.scriptObject));
+		if (zoneNode6 !is null) zoneGetArray.Push(cast<ZoneGet>(zoneNode6.scriptObject));
+		if (zoneNode7 !is null) zoneGetArray.Push(cast<ZoneGet>(zoneNode7.scriptObject));
 	}
 
 	void Update(float timeStep)
 	{
-		currentSecondsPerProduct -= timeStep;
+		if ( currentSecondsPerProduct > .0f )
+			currentSecondsPerProduct -= timeStep;
 
 		if ( currentSecondsPerProduct < .0f )
 			currentSecondsPerProduct = .0f;
 
-		Text3D@ t = node.GetComponents("Text3D")[0];
-        t.text = node.name + "\n" + "powerRed: " + powerRed + "\n" + "powerGreen: " + powerGreen + "\n" + "powerBlue: " + powerBlue + "\n" +
-        	"seconds: " + ((int( currentSecondsPerProduct * 100 )) / 10) + " / " + (secondsPerProduct * 10) + "\n" +
-        	(cast<ZoneGet>((zoneNodes[0]).scriptObject).getCargoBox() is null ? "-" : "+") + " | " +
-        	(cast<ZoneGet>((zoneNodes[1]).scriptObject).getCargoBox() is null ? "-" : "+") + " | " +
-        	(cast<ZoneGet>((zoneNodes[2]).scriptObject).getCargoBox() is null ? "-" : "+");
-
 		if ( currentSecondsPerProduct == .0f )
 		{
-	    	Array<CargoBox@> cargoBoxS;
-	    	for (int i = 0; i < zoneNodes.length; ++i)
+	    	VariantMap cargoMap;
+
+	    	for (uint i = 0; i < zoneGetArray.length; ++i)
 	    	{
-	    		if (zoneNodes[i] is null) continue;
-	    		CargoBox@ cargoBox = cast<ZoneGet>(zoneNodes[i].scriptObject).getCargoBox();
-	    		if (cargoBox is null)
-	    		{
-	    			cargoBoxS.Clear();
-	    			break;
-	    		}
-	    		cargoBoxS.Push(cargoBox);
+	    		String cargoNodeName = zoneGetArray[i].cargoNodeName;
+
+				if (not cargoMap.Contains(cargoNodeName))
+					cargoMap[cargoNodeName] = 0;
+
+				if ( zoneGetArray[i].getCargoBox() !is null )
+				{
+	    			CargoBox@ cargoBoxNew = cast<CargoBox>(zoneGetArray[i].getCargoBox().scriptObject);
+
+					if ( cargoMap[cargoNodeName] != 0 )
+					{
+						CargoBox@ cargoBoxOld = cast<CargoBox>(cargoMap[cargoNodeName].GetScriptObject());
+
+		    			if ( cargoBoxOld.capacityCurrent < cargoBoxNew.capacityCurrent )
+		    				cargoMap[cargoNodeName] = cargoBoxOld;
+	
+		    			if ( cargoBoxOld.capacityCurrent == 0 )
+		    				cargoMap[cargoNodeName] = cargoBoxNew;
+					}
+					else cargoMap[cargoNodeName] = cargoBoxNew;
+				}
 	    	}
 
-	    	for (int i = 0; i < cargoBoxS.length; ++i)
+	    	bool doDecrase = true;
+	    	for (uint i = 0; i < cargoMap.values.length; ++i )
 	    	{
-	    		int power = 0;
+	    		if (cargoMap.values[i] == 0)
+	    			{ doDecrase = false; break; }
 
-				if (cargoBoxS[i].getColor() == Color_Red) power = powerRed;
-				else if (cargoBoxS[i].getColor() == Color_Green) power = powerGreen;
-				else if (cargoBoxS[i].getColor() == Color_Blue) power = powerBlue;
-
-	    		cargoBoxS[i].decrasePortions(power);
+	    		if ( cast<CargoBox>(cargoMap.values[i].GetScriptObject()).capacityCurrent == 0 )
+	    			{ doDecrase = false; break; }
 	    	}
 
-			if ( cargoBoxS.length > 0 )
-				currentSecondsPerProduct = secondsPerProduct;
-		}
+	    	if (doDecrase)
+	    	{
+		    	for (uint i = 0; i < cargoMap.values.length; ++i )
+		    		cast<CargoBox>(cargoMap.values[i].GetScriptObject()).capacityCurrent -= 1;
+
+	    		currentSecondsPerProduct = secondsPerProduct;
+	    	}
+	    }
+
+		Text3D@ t = node.GetComponents("Text3D")[0];
+        t.text = "seconds: " + ((int( currentSecondsPerProduct * 100 )) / 10) + " / " + (secondsPerProduct * 10);
 	}
 }

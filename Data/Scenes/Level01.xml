@@ -5,12 +5,12 @@
 	<attribute name="Smoothing Constant" value="50" />
 	<attribute name="Snap Threshold" value="5" />
 	<attribute name="Elapsed Time" value="40.0748" />
-	<attribute name="Next Replicated Node ID" value="51" />
-	<attribute name="Next Replicated Component ID" value="137" />
-	<attribute name="Next Local Node ID" value="16777360" />
-	<attribute name="Next Local Component ID" value="16778932" />
+	<attribute name="Next Replicated Node ID" value="70" />
+	<attribute name="Next Replicated Component ID" value="152" />
+	<attribute name="Next Local Node ID" value="16777447" />
+	<attribute name="Next Local Component ID" value="16779976" />
 	<attribute name="Variables" />
-	<attribute name="Variable Names" value="spawnBoxColor;spawnBoxCargoName;secondsPerProduct;powerRed;powerGreen;powerBlue;zoneNodeName0;zoneNodeName1;zoneNodeName2;zoneNodeName3;zoneNodeName4;zoneNodeName5;zoneNodeName6;zoneNodeName7;ZoneColor;ZoneCargoName" />
+	<attribute name="Variable Names" value="secondsPerProduct;powerRed;powerGreen;powerBlue;zoneNodeName0;zoneNodeName1;zoneNodeName2;zoneNodeName3;zoneNodeName4;zoneNodeName5;zoneNodeName6;zoneNodeName7;ZoneColor;ZoneCargoName" />
 	<component type="Octree" id="1" />
 	<component type="DebugRenderer" id="2" />
 	<component type="Renderer2D" id="4" />
@@ -88,34 +88,6 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
 			<attribute name="Class Name" value="ProxyNode" />
 			<attribute name="sourceXML" value="Objects/PlayerVehicle.xml" />
-		</component>
-	</node>
-	<node id="14">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="Mashine_One" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-1.51151 8.77983 0" />
-		<attribute name="Rotation" value="0.0130544 0 0 0.999915" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables">
-			<variant hash="1546395985" type="Float" value="7.4" />
-			<variant hash="1070519020" type="Int" value="2" />
-			<variant hash="2286930526" type="Int" value="2" />
-			<variant hash="2716355903" type="Int" value="1" />
-			<variant hash="225460183" type="String" value="ZoneGet_RA" />
-			<variant hash="225460184" type="String" value="ZoneGet_GB" />
-			<variant hash="225460185" type="String" value="ZoneGet_BB" />
-			<variant hash="225460186" type="String" value="" />
-			<variant hash="225460187" type="String" value="" />
-			<variant hash="225460188" type="String" value="" />
-			<variant hash="225460189" type="String" value="" />
-			<variant hash="225460190" type="String" value="" />
-		</attribute>
-		<component type="ScriptInstance" id="56">
-			<attribute name="Delayed Method Calls" value="0" />
-			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
-			<attribute name="Class Name" value="ProxyNode" />
-			<attribute name="sourceXML" value="Objects/Mashine.xml" />
 		</component>
 	</node>
 	<node id="16">
@@ -200,204 +172,6 @@
 				<attribute name="Mask Bits" value="65535" />
 			</component>
 		</node>
-		<node id="21">
-			<attribute name="Is Enabled" value="true" />
-			<attribute name="Name" value="Part" />
-			<attribute name="Tags" />
-			<attribute name="Position" value="-11.6432 1.32123 0" />
-			<attribute name="Rotation" value="0.669654 0 0 -0.742674" />
-			<attribute name="Scale" value="1 1 1" />
-			<attribute name="Variables" />
-			<component type="StaticSprite2D" id="69">
-				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
-			</component>
-			<component type="RigidBody2D" id="70" />
-			<component type="CollisionBox2D" id="71">
-				<attribute name="Size" value="3 1" />
-				<attribute name="Category Bits" value="1" />
-				<attribute name="Mask Bits" value="65535" />
-			</component>
-		</node>
-		<node id="22">
-			<attribute name="Is Enabled" value="true" />
-			<attribute name="Name" value="Part" />
-			<attribute name="Tags" />
-			<attribute name="Position" value="-11.3656 3.99909 0" />
-			<attribute name="Rotation" value="0.669654 0 0 -0.742674" />
-			<attribute name="Scale" value="1 1 1" />
-			<attribute name="Variables" />
-			<component type="StaticSprite2D" id="72">
-				<attribute name="Sprite" value="Sprite2D;Textures/stop.png" />
-			</component>
-			<component type="RigidBody2D" id="73" />
-			<component type="CollisionBox2D" id="74">
-				<attribute name="Size" value="3 1" />
-				<attribute name="Category Bits" value="1" />
-				<attribute name="Mask Bits" value="65535" />
-			</component>
-		</node>
-	</node>
-	<node id="41">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="ZoneGet_RA" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-4.20321 2.14384 0" />
-		<attribute name="Rotation" value="0.668743 0 0 0.743493" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables">
-			<variant hash="3143654903" type="String" value="box_red" />
-			<variant hash="2381540283" type="String" value="A" />
-		</attribute>
-		<component type="ScriptInstance" id="127">
-			<attribute name="Delayed Method Calls" value="0" />
-			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
-			<attribute name="Class Name" value="ProxyNode" />
-			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
-		</component>
-	</node>
-	<node id="42">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="ZoneGet_GB" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-3.84292 -0.00408182 0" />
-		<attribute name="Rotation" value="0.949314 0 0 0.314327" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables">
-			<variant hash="3143654903" type="String" value="box_green" />
-			<variant hash="2381540283" type="String" value="B" />
-		</attribute>
-		<component type="ScriptInstance" id="128">
-			<attribute name="Delayed Method Calls" value="0" />
-			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
-			<attribute name="Class Name" value="ProxyNode" />
-			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
-		</component>
-	</node>
-	<node id="43">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="ZoneGet_BB" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-3.77978 -1.29306 0" />
-		<attribute name="Rotation" value="0.783178 0 0 0.621799" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables">
-			<variant hash="3143654903" type="String" value="box_blue" />
-			<variant hash="2381540283" type="String" value="B" />
-		</attribute>
-		<component type="ScriptInstance" id="129">
-			<attribute name="Delayed Method Calls" value="0" />
-			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
-			<attribute name="Class Name" value="ProxyNode" />
-			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
-		</component>
-	</node>
-	<node id="44">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="ZoneSpawnBox_RA" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="1.10984 2.56364 0" />
-		<attribute name="Rotation" value="0.994768 0 0 -0.102157" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables">
-			<variant hash="4130011539" type="String" value="box_red" />
-			<variant hash="1078782807" type="String" value="A" />
-		</attribute>
-		<component type="ScriptInstance" id="130">
-			<attribute name="Delayed Method Calls" value="0" />
-			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
-			<attribute name="Class Name" value="ProxyNode" />
-			<attribute name="sourceXML" value="Objects/ZoneSpawnBox.xml" />
-		</component>
-	</node>
-	<node id="40">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="ZoneSpawnBox_RB" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="1.9183 2.39582 0" />
-		<attribute name="Rotation" value="0.994768 0 0 -0.102157" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables">
-			<variant hash="4130011539" type="String" value="box_red" />
-			<variant hash="1078782807" type="String" value="B" />
-		</attribute>
-		<component type="ScriptInstance" id="126">
-			<attribute name="Delayed Method Calls" value="0" />
-			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
-			<attribute name="Class Name" value="ProxyNode" />
-			<attribute name="sourceXML" value="Objects/ZoneSpawnBox.xml" />
-		</component>
-	</node>
-	<node id="45">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="ZoneSpawnBox_GA" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="3.02789 2.1655 0" />
-		<attribute name="Rotation" value="0.994768 0 0 -0.102157" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables">
-			<variant hash="4130011539" type="String" value="box_green" />
-			<variant hash="1078782807" type="String" value="A" />
-		</attribute>
-		<component type="ScriptInstance" id="131">
-			<attribute name="Delayed Method Calls" value="0" />
-			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
-			<attribute name="Class Name" value="ProxyNode" />
-			<attribute name="sourceXML" value="Objects/ZoneSpawnBox.xml" />
-		</component>
-	</node>
-	<node id="46">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="ZoneSpawnBox_GB" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="4.01265 1.96108 0" />
-		<attribute name="Rotation" value="0.994768 0 0 -0.102157" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables">
-			<variant hash="4130011539" type="String" value="box_green" />
-			<variant hash="1078782807" type="String" value="B" />
-		</attribute>
-		<component type="ScriptInstance" id="132">
-			<attribute name="Delayed Method Calls" value="0" />
-			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
-			<attribute name="Class Name" value="ProxyNode" />
-			<attribute name="sourceXML" value="Objects/ZoneSpawnBox.xml" />
-		</component>
-	</node>
-	<node id="47">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="ZoneSpawnBox_BA" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="4.72782 1.13426 0" />
-		<attribute name="Rotation" value="0.868752 0 0 -0.495247" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables">
-			<variant hash="4130011539" type="String" value="box_blue" />
-			<variant hash="1078782807" type="String" value="A" />
-		</attribute>
-		<component type="ScriptInstance" id="133">
-			<attribute name="Delayed Method Calls" value="0" />
-			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
-			<attribute name="Class Name" value="ProxyNode" />
-			<attribute name="sourceXML" value="Objects/ZoneSpawnBox.xml" />
-		</component>
-	</node>
-	<node id="48">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="ZoneSpawnBox_BB" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="5.06304 0.0314227 0" />
-		<attribute name="Rotation" value="0.741785 0 0 -0.670637" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables">
-			<variant hash="4130011539" type="String" value="box_blue" />
-			<variant hash="1078782807" type="String" value="B" />
-		</attribute>
-		<component type="ScriptInstance" id="134">
-			<attribute name="Delayed Method Calls" value="0" />
-			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
-			<attribute name="Class Name" value="ProxyNode" />
-			<attribute name="sourceXML" value="Objects/ZoneSpawnBox.xml" />
-		</component>
 	</node>
 	<node id="49">
 		<attribute name="Is Enabled" value="true" />
@@ -411,32 +185,287 @@
 			<attribute name="Sprite" value="Sprite2D;Textures/environment.jpg" />
 		</component>
 	</node>
-	<node id="50">
+	<node id="44">
 		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="Mashine_One" />
+		<attribute name="Name" value="ZoneSpawn" />
 		<attribute name="Tags" />
-		<attribute name="Position" value="5.41872 8.77983 0" />
-		<attribute name="Rotation" value="-0.0293976 0 0 0.999568" />
+		<attribute name="Position" value="5.65619 3.1144 0" />
+		<attribute name="Rotation" value="0.719791 0 0 -0.694191" />
 		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables">
-			<variant hash="1546395985" type="Float" value="7.4" />
-			<variant hash="1070519020" type="Int" value="2" />
-			<variant hash="2286930526" type="Int" value="2" />
-			<variant hash="2716355903" type="Int" value="1" />
-			<variant hash="225460183" type="String" value="ZoneGet_RA" />
-			<variant hash="225460184" type="String" value="ZoneGet_GB" />
-			<variant hash="225460185" type="String" value="ZoneGet_BB" />
-			<variant hash="225460186" type="String" value="" />
-			<variant hash="225460187" type="String" value="" />
-			<variant hash="225460188" type="String" value="" />
-			<variant hash="225460189" type="String" value="" />
-			<variant hash="225460190" type="String" value="" />
-		</attribute>
-		<component type="ScriptInstance" id="136">
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="130">
 			<attribute name="Delayed Method Calls" value="0" />
-			<attribute name="Script File" value="ScriptFile;Scripts/ProxyNode.as" />
-			<attribute name="Class Name" value="ProxyNode" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneSpawn.as" />
+			<attribute name="Class Name" value="ZoneSpawn_px" />
+			<attribute name="sourceXML" value="Objects/ZoneSpawn.xml" />
+			<attribute name="spawnBoxXML" value="Objects/CargoBox_00.xml" />
+		</component>
+	</node>
+	<node id="51">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneSpawn" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="5.55536 2.31184 0" />
+		<attribute name="Rotation" value="0.680183 0 0 -0.733041" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="137">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneSpawn.as" />
+			<attribute name="Class Name" value="ZoneSpawn_px" />
+			<attribute name="sourceXML" value="Objects/ZoneSpawn.xml" />
+			<attribute name="spawnBoxXML" value="Objects/CargoBox_01.xml" />
+		</component>
+	</node>
+	<node id="52">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneSpawn" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="5.65076 1.53782 0" />
+		<attribute name="Rotation" value="0.708049 0 0 -0.706162" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="138">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneSpawn.as" />
+			<attribute name="Class Name" value="ZoneSpawn_px" />
+			<attribute name="sourceXML" value="Objects/ZoneSpawn.xml" />
+			<attribute name="spawnBoxXML" value="Objects/CargoBox_02.xml" />
+		</component>
+	</node>
+	<node id="56">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneGet" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="1.99496 7.81052 0" />
+		<attribute name="Rotation" value="0.998739 0 0 0.0501777" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="142">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
+			<attribute name="Class Name" value="ZoneGet_px" />
+			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
+			<attribute name="cargoNodeName" value="CargoBox_02" />
+			<attribute name="zoneSpriteNumber" value="2" />
+		</component>
+	</node>
+	<node id="57">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneGet" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="1.9776 7.09544 0" />
+		<attribute name="Rotation" value="0.999446 0 0 -0.0332288" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="143">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
+			<attribute name="Class Name" value="ZoneGet_px" />
+			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
+			<attribute name="cargoNodeName" value="CargoBox_02" />
+			<attribute name="zoneSpriteNumber" value="2" />
+		</component>
+	</node>
+	<node id="58">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneGet" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="1.92548 6.44045 0" />
+		<attribute name="Rotation" value="0.999784 0 0 0.0207056" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="144">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
+			<attribute name="Class Name" value="ZoneGet_px" />
+			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
+			<attribute name="cargoNodeName" value="CargoBox_02" />
+			<attribute name="zoneSpriteNumber" value="2" />
+		</component>
+	</node>
+	<node id="53">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneGet" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="1.06601 7.16986 0" />
+		<attribute name="Rotation" value="0.9996 0 0 -0.0282912" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="139">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
+			<attribute name="Class Name" value="ZoneGet_px" />
+			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
+			<attribute name="cargoNodeName" value="CargoBox_00" />
+			<attribute name="zoneSpriteNumber" value="0" />
+		</component>
+	</node>
+	<node id="61">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneGet" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="1.10255 7.81486 0" />
+		<attribute name="Rotation" value="0.99996 0 0 0.00882842" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="141">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
+			<attribute name="Class Name" value="ZoneGet_px" />
+			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
+			<attribute name="cargoNodeName" value="CargoBox_00" />
+			<attribute name="zoneSpriteNumber" value="0" />
+		</component>
+	</node>
+	<node id="62">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="Mashine" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="5.61577 8.93061 0" />
+		<attribute name="Rotation" value="0.0174524 0 0 0.999848" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="140">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/Mashine.as" />
+			<attribute name="Class Name" value="Mashine_px" />
 			<attribute name="sourceXML" value="Objects/Mashine.xml" />
+			<attribute name="secondsPerProduct" value="2" />
+			<attribute name="zoneNode0" value="56" />
+			<attribute name="zoneNode1" value="57" />
+			<attribute name="zoneNode2" value="58" />
+			<attribute name="zoneNode3" value="53" />
+			<attribute name="zoneNode4" value="61" />
+			<attribute name="zoneNode5" value="0" />
+			<attribute name="zoneNode6" value="0" />
+			<attribute name="zoneNode7" value="0" />
+		</component>
+	</node>
+	<node id="63">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneGet" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="-2.39894 5.62041 0" />
+		<attribute name="Rotation" value="0.999995 0 0 -0.00260781" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="145">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
+			<attribute name="Class Name" value="ZoneGet_px" />
+			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
+			<attribute name="cargoNodeName" value="CargoBox_00" />
+			<attribute name="zoneSpriteNumber" value="0" />
+		</component>
+	</node>
+	<node id="64">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneGet" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="-2.43841 4.92091 0" />
+		<attribute name="Rotation" value="0.999995 0 0 -0.00260781" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="146">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
+			<attribute name="Class Name" value="ZoneGet_px" />
+			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
+			<attribute name="cargoNodeName" value="CargoBox_00" />
+			<attribute name="zoneSpriteNumber" value="0" />
+		</component>
+	</node>
+	<node id="65">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneGet" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="-1.63269 5.60758 0" />
+		<attribute name="Rotation" value="0.999995 0 0 -0.00260781" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="147">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
+			<attribute name="Class Name" value="ZoneGet_px" />
+			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
+			<attribute name="cargoNodeName" value="CargoBox_01" />
+			<attribute name="zoneSpriteNumber" value="1" />
+		</component>
+	</node>
+	<node id="66">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneGet" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="-1.65952 4.917 0" />
+		<attribute name="Rotation" value="0.999995 0 0 -0.00260781" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="148">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
+			<attribute name="Class Name" value="ZoneGet_px" />
+			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
+			<attribute name="cargoNodeName" value="CargoBox_01" />
+			<attribute name="zoneSpriteNumber" value="1" />
+		</component>
+	</node>
+	<node id="67">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneGet" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="-0.861407 5.58462 0" />
+		<attribute name="Rotation" value="0.999995 0 0 -0.00260781" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="149">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
+			<attribute name="Class Name" value="ZoneGet_px" />
+			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
+			<attribute name="cargoNodeName" value="CargoBox_02" />
+			<attribute name="zoneSpriteNumber" value="2" />
+		</component>
+	</node>
+	<node id="68">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneGet" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="-0.858045 4.90557 0" />
+		<attribute name="Rotation" value="0.999995 0 0 -0.00260781" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="150">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
+			<attribute name="Class Name" value="ZoneGet_px" />
+			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
+			<attribute name="cargoNodeName" value="CargoBox_02" />
+			<attribute name="zoneSpriteNumber" value="2" />
+		</component>
+	</node>
+	<node id="69">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="Mashine" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="-3.69596 9.24244 0" />
+		<attribute name="Rotation" value="-0.703979 0 0 0.710222" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="151">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/Mashine.as" />
+			<attribute name="Class Name" value="Mashine_px" />
+			<attribute name="sourceXML" value="Objects/Mashine.xml" />
+			<attribute name="secondsPerProduct" value="3" />
+			<attribute name="zoneNode0" value="63" />
+			<attribute name="zoneNode1" value="64" />
+			<attribute name="zoneNode2" value="65" />
+			<attribute name="zoneNode3" value="66" />
+			<attribute name="zoneNode4" value="67" />
+			<attribute name="zoneNode5" value="68" />
+			<attribute name="zoneNode6" value="0" />
+			<attribute name="zoneNode7" value="0" />
 		</component>
 	</node>
 </scene>

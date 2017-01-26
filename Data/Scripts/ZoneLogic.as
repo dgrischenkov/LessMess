@@ -1,6 +1,0 @@
-#include "Scripts/GameLogicEventFunc.as"
-#include "Scripts/GameLogicMenuFunc.as"
-#include "Scripts/ZoneSpawn.as"
-#include "Scripts/Mashine.as"
-#include "Scripts/ZoneGet.as"
-#include "Scripts/CargoBox.as"

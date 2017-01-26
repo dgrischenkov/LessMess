@@ -23,22 +23,19 @@
 	</component>
 	<component type="ScriptInstance" id="130">
 		<attribute name="Delayed Method Calls" value="0" />
-		<attribute name="Script File" value="ScriptFile;Scripts/ZoneLogic.as" />
+		<attribute name="Script File" value="ScriptFile;Scripts/Mashine.as" />
 		<attribute name="Class Name" value="Mashine" />
 		<attribute name="secondsPerProduct" value="7.5" />
-		<attribute name="powerRed" value="1" />
-		<attribute name="powerGreen" value="1" />
-		<attribute name="powerBlue" value="1" />
-		<attribute name="zoneNodeName0" value="" />
-		<attribute name="zoneNodeName1" value="" />
-		<attribute name="zoneNodeName2" value="" />
-		<attribute name="zoneNodeName3" value="" />
-		<attribute name="zoneNodeName4" value="" />
-		<attribute name="zoneNodeName5" value="" />
-		<attribute name="zoneNodeName6" value="" />
-		<attribute name="zoneNodeName7" value="" />
+		<attribute name="zoneNode0" value="0" />
+		<attribute name="zoneNode1" value="0" />
+		<attribute name="zoneNode2" value="0" />
+		<attribute name="zoneNode3" value="0" />
+		<attribute name="zoneNode4" value="0" />
+		<attribute name="zoneNode5" value="0" />
+		<attribute name="zoneNode6" value="0" />
+		<attribute name="zoneNode7" value="0" />
 	</component>
-	<node id="32">
+	<node id="29">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="Part" />
 		<attribute name="Tags" />
@@ -46,18 +43,18 @@
 		<attribute name="Rotation" value="1 0 0 0" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
-		<component type="StaticSprite2D" id="140">
+		<component type="StaticSprite2D" id="131">
 			<attribute name="Order in Layer" value="1" />
 			<attribute name="Sprite" value="Sprite2D;Textures/mashine_0.png" />
 		</component>
-		<component type="RigidBody2D" id="141" />
-		<component type="CollisionBox2D" id="142">
+		<component type="RigidBody2D" id="132" />
+		<component type="CollisionBox2D" id="133">
 			<attribute name="Size" value="1.2 4.8" />
 			<attribute name="Category Bits" value="1" />
 			<attribute name="Mask Bits" value="65535" />
 		</component>
 	</node>
-	<node id="29">
+	<node id="30">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="Part" />
 		<attribute name="Tags" />
@@ -65,12 +62,12 @@
 		<attribute name="Rotation" value="1 0 0 0" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
-		<component type="StaticSprite2D" id="131">
+		<component type="StaticSprite2D" id="134">
 			<attribute name="Order in Layer" value="1" />
 			<attribute name="Sprite" value="Sprite2D;Textures/mashine_1.png" />
 		</component>
-		<component type="RigidBody2D" id="132" />
-		<component type="CollisionBox2D" id="133">
+		<component type="RigidBody2D" id="135" />
+		<component type="CollisionBox2D" id="136">
 			<attribute name="Size" value="4.4 1.7" />
 			<attribute name="Category Bits" value="1" />
 			<attribute name="Mask Bits" value="65535" />

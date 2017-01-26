@@ -1,60 +1,50 @@
-#include "Scripts/ZoneCommon.as"
+#include "Scripts/ProxyNode.as"
 
-class ZoneGet : ScriptObject
+mixin class ZoneGet_mx
 {
-	String ZoneColor;
-	String ZoneCargoName;
+	String cargoNodeName = "CargoBox_XX";
+	int zoneSpriteNumber;
+}
 
-	private CargoBox@ cargoBox;
+class ZoneGet_px : ProxyNode, ZoneGet_mx
+{
+	void copyMixinPart(ScriptObject@ newScriptObject, ScriptObject@ scriptObject)
+	{
+		cast<ZoneGet>(newScriptObject).cargoNodeName = cast<ZoneGet_px>(scriptObject).cargoNodeName;
+		cast<ZoneGet>(newScriptObject).zoneSpriteNumber = cast<ZoneGet_px>(scriptObject).zoneSpriteNumber;
+	}
+}
+
+shared class ZoneGet : ScriptObject, ZoneGet_mx
+{
+	private Node@ cargoBox;
 
 	void DelayedStart()
 	{
 	    SubscribeToEvent("PhysicsBeginContact2D", "HandleCollisionStart");
 	    SubscribeToEvent("PhysicsEndContact2D", "HandleCollisionEnd");
 
-		ZoneColor = node.vars["ZoneColor"].ToString();
-		ZoneCargoName = node.vars["ZoneCargoName"].ToString();
-
-		int zoneType = 0;
-
-		if (ZoneColor == Color_Red) zoneType = 0;
-		else if (ZoneColor == Color_Green) zoneType = 1;
-		else if (ZoneColor == Color_Blue) zoneType = 2;
-
-		node.GetComponents("StaticSprite2D")[zoneType].enabled = true;
+		node.GetComponents("StaticSprite2D")[zoneSpriteNumber].enabled = true;
 
 		Text3D@ t = node.GetComponents("Text3D")[0];
-        t.text = node.name;
-	}
-
-	void Update(float timeStep)
-	{
+        t.text = cargoNodeName;
 	}
 
 	void HandleCollisionStart(StringHash eventType, VariantMap& eventData)
 	{
 		Node@ nodeA = eventData["NodeA"].GetPtr();
 		Node@ nodeB = eventData["NodeB"].GetPtr();
-		if (nodeA !is node) return;
-
-		if (nodeA.name == node.name)
-		{
-			CargoBox@ cargoBox_tmp = cast<CargoBox>(nodeB.scriptObject);
-			if ( cargoBox_tmp !is null )
-				if ( cargoBox_tmp.getColor() == ZoneColor and cargoBox_tmp.getCargoName() == ZoneCargoName )
-					@cargoBox = @cargoBox_tmp;
-		}
+		if (nodeA is node and nodeB.name == cargoNodeName) @cargoBox = @nodeB;
 	}
 
 	void HandleCollisionEnd(StringHash eventType, VariantMap& eventData)
 	{
 		Node@ nodeA = eventData["NodeA"].GetPtr();
-		if (nodeA.name == node.name) @cargoBox = null;
+		if (nodeA is node) @cargoBox = null;
 	}
 
-	CargoBox@ getCargoBox()
+	Node@ getCargoBox()
 	{
-		if (cargoBox is null) return null;
-		return cargoBox.isEmpty() ? null : cargoBox;
+		return cargoBox;
 	}
 }

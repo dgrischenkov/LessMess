@@ -17,7 +17,6 @@
 	<component type="PhysicsWorld2D" id="7">
 		<attribute name="Draw Shape" value="true" />
 		<attribute name="Draw Joint" value="true" />
-		<attribute name="Draw Aabb" value="true" />
 		<attribute name="Draw Pair" value="true" />
 		<attribute name="Draw CenterOfMass" value="true" />
 		<attribute name="Allow Sleeping" value="true" />

@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
-<node id="30">
+<node id="33">
 	<attribute name="Is Enabled" value="true" />
 	<attribute name="Name" value="CargoBox_00" />
 	<attribute name="Tags" />
-	<attribute name="Position" value="0 -3.81927 7.88854" />
+	<attribute name="Position" value="3.53908 -0.471133 17.8036" />
 	<attribute name="Rotation" value="1 0 0 0" />
 	<attribute name="Scale" value="1 1 1" />
 	<attribute name="Variables" />
-	<component type="ScriptInstance" id="147">
+	<component type="ScriptInstance" id="150">
 		<attribute name="Delayed Method Calls" value="0" />
 		<attribute name="Script File" value="ScriptFile;Scripts/CargoBox.as" />
 		<attribute name="Class Name" value="CargoBox_px" />
 		<attribute name="sourceXML" value="Objects/CargoBox.xml" />
 		<attribute name="cargoName" value="A001" />
-		<attribute name="cargoSpriteNumber" value="0" />
+		<attribute name="cargoSpriteNumber" value="1" />
 		<attribute name="capacityTotal" value="50" />
 		<attribute name="capacityCurrent" value="50" />
 	</component>

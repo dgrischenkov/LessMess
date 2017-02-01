@@ -7,8 +7,8 @@
 	<attribute name="Elapsed Time" value="40.0748" />
 	<attribute name="Next Replicated Node ID" value="70" />
 	<attribute name="Next Replicated Component ID" value="152" />
-	<attribute name="Next Local Node ID" value="16777447" />
-	<attribute name="Next Local Component ID" value="16779976" />
+	<attribute name="Next Local Node ID" value="16777451" />
+	<attribute name="Next Local Component ID" value="16780024" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="secondsPerProduct;powerRed;powerGreen;powerBlue;zoneNodeName0;zoneNodeName1;zoneNodeName2;zoneNodeName3;zoneNodeName4;zoneNodeName5;zoneNodeName6;zoneNodeName7;ZoneColor;ZoneCargoName" />
 	<component type="Octree" id="1" />
@@ -49,8 +49,8 @@
 		</component>
 		<component type="CollisionCircle2D" id="53">
 			<attribute name="Trigger" value="true" />
-			<attribute name="Category Bits" value="1" />
-			<attribute name="Mask Bits" value="65535" />
+			<attribute name="Category Bits" value="2" />
+			<attribute name="Mask Bits" value="65533" />
 			<attribute name="Density" value="10000" />
 		</component>
 		<component type="ScriptInstance" id="55">
@@ -205,7 +205,7 @@
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="ZoneSpawn" />
 		<attribute name="Tags" />
-		<attribute name="Position" value="5.55536 2.31184 0" />
+		<attribute name="Position" value="5.51709 1.80098 0" />
 		<attribute name="Rotation" value="0.680183 0 0 -0.733041" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
@@ -221,7 +221,7 @@
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="ZoneSpawn" />
 		<attribute name="Tags" />
-		<attribute name="Position" value="5.65076 1.53782 0" />
+		<attribute name="Position" value="5.65411 0.283569 0" />
 		<attribute name="Rotation" value="0.708049 0 0 -0.706162" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
@@ -237,7 +237,7 @@
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="ZoneGet" />
 		<attribute name="Tags" />
-		<attribute name="Position" value="1.99496 7.81052 0" />
+		<attribute name="Position" value="2.19559 7.47577 0" />
 		<attribute name="Rotation" value="0.998739 0 0 0.0501777" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
@@ -246,15 +246,15 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
 			<attribute name="Class Name" value="ZoneGet_px" />
 			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
-			<attribute name="cargoNodeName" value="CargoBox_02" />
 			<attribute name="zoneSpriteNumber" value="2" />
+			<attribute name="cargoNodeName_postfix" value="_02" />
 		</component>
 	</node>
 	<node id="57">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="ZoneGet" />
 		<attribute name="Tags" />
-		<attribute name="Position" value="1.9776 7.09544 0" />
+		<attribute name="Position" value="1.95331 6.37552 0" />
 		<attribute name="Rotation" value="0.999446 0 0 -0.0332288" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
@@ -263,15 +263,15 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
 			<attribute name="Class Name" value="ZoneGet_px" />
 			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
-			<attribute name="cargoNodeName" value="CargoBox_02" />
 			<attribute name="zoneSpriteNumber" value="2" />
+			<attribute name="cargoNodeName_postfix" value="_02" />
 		</component>
 	</node>
 	<node id="58">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="ZoneGet" />
 		<attribute name="Tags" />
-		<attribute name="Position" value="1.92548 6.44045 0" />
+		<attribute name="Position" value="1.95566 5.35723 0" />
 		<attribute name="Rotation" value="0.999784 0 0 0.0207056" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
@@ -280,15 +280,15 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
 			<attribute name="Class Name" value="ZoneGet_px" />
 			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
-			<attribute name="cargoNodeName" value="CargoBox_02" />
 			<attribute name="zoneSpriteNumber" value="2" />
+			<attribute name="cargoNodeName_postfix" value="_02" />
 		</component>
 	</node>
 	<node id="53">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="ZoneGet" />
 		<attribute name="Tags" />
-		<attribute name="Position" value="1.06601 7.16986 0" />
+		<attribute name="Position" value="0.730201 6.33019 0" />
 		<attribute name="Rotation" value="0.9996 0 0 -0.0282912" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
@@ -297,15 +297,15 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
 			<attribute name="Class Name" value="ZoneGet_px" />
 			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
-			<attribute name="cargoNodeName" value="CargoBox_00" />
 			<attribute name="zoneSpriteNumber" value="0" />
+			<attribute name="cargoNodeName_postfix" value="_00" />
 		</component>
 	</node>
 	<node id="61">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="ZoneGet" />
 		<attribute name="Tags" />
-		<attribute name="Position" value="1.10255 7.81486 0" />
+		<attribute name="Position" value="0.94056 7.45704 0" />
 		<attribute name="Rotation" value="0.99996 0 0 0.00882842" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
@@ -314,8 +314,8 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
 			<attribute name="Class Name" value="ZoneGet_px" />
 			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
-			<attribute name="cargoNodeName" value="CargoBox_00" />
 			<attribute name="zoneSpriteNumber" value="0" />
+			<attribute name="cargoNodeName_postfix" value="_00" />
 		</component>
 	</node>
 	<node id="62">
@@ -355,8 +355,8 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
 			<attribute name="Class Name" value="ZoneGet_px" />
 			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
-			<attribute name="cargoNodeName" value="CargoBox_00" />
 			<attribute name="zoneSpriteNumber" value="0" />
+			<attribute name="cargoNodeName_postfix" value="_00" />
 		</component>
 	</node>
 	<node id="64">
@@ -372,8 +372,8 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
 			<attribute name="Class Name" value="ZoneGet_px" />
 			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
-			<attribute name="cargoNodeName" value="CargoBox_00" />
 			<attribute name="zoneSpriteNumber" value="0" />
+			<attribute name="cargoNodeName_postfix" value="_00" />
 		</component>
 	</node>
 	<node id="65">
@@ -389,8 +389,8 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
 			<attribute name="Class Name" value="ZoneGet_px" />
 			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
-			<attribute name="cargoNodeName" value="CargoBox_01" />
 			<attribute name="zoneSpriteNumber" value="1" />
+			<attribute name="cargoNodeName_postfix" value="_01" />
 		</component>
 	</node>
 	<node id="66">
@@ -406,8 +406,8 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
 			<attribute name="Class Name" value="ZoneGet_px" />
 			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
-			<attribute name="cargoNodeName" value="CargoBox_01" />
 			<attribute name="zoneSpriteNumber" value="1" />
+			<attribute name="cargoNodeName_postfix" value="_01" />
 		</component>
 	</node>
 	<node id="67">
@@ -423,8 +423,8 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
 			<attribute name="Class Name" value="ZoneGet_px" />
 			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
-			<attribute name="cargoNodeName" value="CargoBox_02" />
 			<attribute name="zoneSpriteNumber" value="2" />
+			<attribute name="cargoNodeName_postfix" value="_02" />
 		</component>
 	</node>
 	<node id="68">
@@ -440,8 +440,8 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/ZoneGet.as" />
 			<attribute name="Class Name" value="ZoneGet_px" />
 			<attribute name="sourceXML" value="Objects/ZoneGet.xml" />
-			<attribute name="cargoNodeName" value="CargoBox_02" />
 			<attribute name="zoneSpriteNumber" value="2" />
+			<attribute name="cargoNodeName_postfix" value="_02" />
 		</component>
 	</node>
 	<node id="69">

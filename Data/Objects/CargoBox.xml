@@ -1,34 +1,31 @@
 <?xml version="1.0"?>
-<node id="32">
+<node id="37">
 	<attribute name="Is Enabled" value="true" />
 	<attribute name="Name" value="CargoBox" />
 	<attribute name="Tags" />
-	<attribute name="Position" value="3.04603 -4.08946 13.5456" />
+	<attribute name="Position" value="0 0 0" />
 	<attribute name="Rotation" value="1 0 0 0" />
 	<attribute name="Scale" value="1 1 1" />
 	<attribute name="Variables" />
-	<component type="StaticSprite2D" id="138">
+	<component type="StaticSprite2D" id="151">
 		<attribute name="Order in Layer" value="200" />
 		<attribute name="Sprite" value="Sprite2D;Textures/box.png" />
 	</component>
-	<component type="RigidBody2D" id="139">
-		<attribute name="Body Type" value="Dynamic" />
-		<attribute name="Mass" value="1.08" />
-		<attribute name="Inertia" value="0.0360233" />
+	<component type="RigidBody2D" id="152">
 		<attribute name="Linear Damping" value="5" />
 		<attribute name="Angular Damping" value="5" />
 	</component>
-	<component type="StaticSprite2D" id="140">
+	<component type="StaticSprite2D" id="153">
 		<attribute name="Is Enabled" value="false" />
 		<attribute name="Order in Layer" value="200" />
 		<attribute name="Sprite" value="Sprite2D;Textures/box0.png" />
 	</component>
-	<component type="StaticSprite2D" id="141">
+	<component type="StaticSprite2D" id="154">
 		<attribute name="Is Enabled" value="false" />
 		<attribute name="Order in Layer" value="200" />
 		<attribute name="Sprite" value="Sprite2D;Textures/box1.png" />
 	</component>
-	<component type="ScriptInstance" id="142">
+	<component type="ScriptInstance" id="155">
 		<attribute name="Delayed Method Calls" value="0" />
 		<attribute name="Script File" value="ScriptFile;Scripts/CargoBox.as" />
 		<attribute name="Class Name" value="CargoBox" />
@@ -37,17 +34,17 @@
 		<attribute name="capacityTotal" value="0" />
 		<attribute name="capacityCurrent" value="0" />
 	</component>
-	<component type="StaticSprite2D" id="143">
+	<component type="StaticSprite2D" id="156">
 		<attribute name="Is Enabled" value="false" />
 		<attribute name="Order in Layer" value="210" />
 		<attribute name="Sprite" value="Sprite2D;Textures/box2.png" />
 	</component>
-	<component type="StaticSprite2D" id="144">
+	<component type="StaticSprite2D" id="157">
 		<attribute name="Is Enabled" value="false" />
 		<attribute name="Order in Layer" value="210" />
 		<attribute name="Sprite" value="Sprite2D;Textures/box3.png" />
 	</component>
-	<component type="Text3D" id="145">
+	<component type="Text3D" id="158">
 		<attribute name="Font" value="Font;Fonts/BlueHighway.ttf" />
 		<attribute name="Font Size" value="9" />
 		<attribute name="Text" value="CargoBox" />
@@ -64,7 +61,7 @@
 		<attribute name="Text Effect" value="Stroke" />
 		<attribute name="Round Stroke" value="true" />
 	</component>
-	<component type="CollisionBox2D" id="146">
+	<component type="CollisionBox2D" id="159">
 		<attribute name="Size" value="0.035 0.4" />
 		<attribute name="Center" value="0.26 0" />
 		<attribute name="Category Bits" value="1" />
@@ -72,7 +69,7 @@
 		<attribute name="Density" value="10" />
 		<attribute name="Friction" value="1" />
 	</component>
-	<component type="CollisionBox2D" id="147">
+	<component type="CollisionBox2D" id="160">
 		<attribute name="Size" value="0.035 0.4" />
 		<attribute name="Center" value="-0.26 0" />
 		<attribute name="Category Bits" value="1" />
@@ -80,14 +77,14 @@
 		<attribute name="Density" value="10" />
 		<attribute name="Friction" value="1" />
 	</component>
-	<component type="CollisionBox2D" id="148">
+	<component type="CollisionBox2D" id="161">
 		<attribute name="Size" value="0.2 0.4" />
 		<attribute name="Category Bits" value="1" />
 		<attribute name="Mask Bits" value="65535" />
 		<attribute name="Density" value="10" />
 		<attribute name="Friction" value="1" />
 	</component>
-	<component type="StaticSprite2D" id="149">
+	<component type="StaticSprite2D" id="162">
 		<attribute name="Is Enabled" value="false" />
 		<attribute name="Order in Layer" value="200" />
 		<attribute name="Sprite" value="Sprite2D;Textures/box4.png" />

@@ -72,9 +72,12 @@ class Mashine : ScriptObject, Mashine_mx
 				if (not cargoMap.Contains(cargoNodeName))
 					cargoMap[cargoNodeName] = 0;
 
-				if ( zoneGetArray[i].getCargoBox() !is null )
+				if ( zoneGetArray[i].cargoBox !is null )
 				{
-	    			CargoBox@ cargoBoxNew = cast<CargoBox>(zoneGetArray[i].getCargoBox().scriptObject);
+	    			CargoBox@ cargoBoxNew = cast<CargoBox>(zoneGetArray[i].cargoBox.scriptObject);
+
+	    			if ( cargoBoxNew.capacityCurrent == 0 )
+	    				zoneGetArray[i].changeCargo();
 
 					if ( cargoMap[cargoNodeName] != 0 )
 					{

@@ -48,8 +48,9 @@
 			<attribute name="Angular Damping" value="10" />
 		</component>
 		<component type="CollisionCircle2D" id="53">
+			<attribute name="Trigger" value="true" />
 			<attribute name="Category Bits" value="1" />
-			<attribute name="Mask Bits" value="65533" />
+			<attribute name="Mask Bits" value="65535" />
 			<attribute name="Density" value="10000" />
 		</component>
 		<component type="ScriptInstance" id="55">

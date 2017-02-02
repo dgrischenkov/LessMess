@@ -16,49 +16,49 @@ class ZoneSpawn_px : ProxyNode, ZoneSpawn_mx
 class ZoneSpawn : ScriptObject, ZoneSpawn_mx
 {
 	String canGetVarName;
+	String cargoNodeName_base;
 
 	private Timer timer;
 	private XMLFile@ xmlfile;
-	private bool needSpawn = true;
+	private bool needSpawn;
 
 	void DelayedStart()
 	{
 		xmlfile = cache.GetResource("XMLFile", spawnBoxXML);
-	    SubscribeToEvent("PhysicsBeginContact2D", "HandleCollisionStart");
-	    SubscribeToEvent("PhysicsEndContact2D", "HandleCollisionEnd");
-	}
-
-	void HandleCollisionStart(StringHash eventType, VariantMap& eventData)
-	{
-		Node@ nodeA = eventData["NodeA"].GetPtr();
-		if ( nodeA is node ) { needSpawn = false; }
+		SubscribeToEvent("PhysicsEndContact2D", "HandleCollisionEnd");
+		doSpawn();
 	}
 
 	void HandleCollisionEnd(StringHash eventType, VariantMap& eventData)
 	{
 		Node@ nodeA = eventData["NodeA"].GetPtr();
-		if ( nodeA is node ) { needSpawn = true; }
+		Node@ nodeB = eventData["NodeB"].GetPtr();
+
+		if (nodeA is node and nodeB.name.Contains(cargoNodeName_base))
+		{
+			needSpawn = true;
+			timer.Reset();
+		}
 	}
 
-    void FixedUpdate(float timeStep)
-    {
-    	if ( timer.GetMSec(false) > 4000 )
-    	{
-    		timer.Reset();
-		    if (needSpawn and (xmlfile !is null))
-		    	doSpawn();
-	    }
+	void Update(float timeStep)
+	{
+		if ( needSpawn and timer.GetMSec(false) > 4000 )
+		{
+			needSpawn = false;
+			doSpawn();
+		}
 	}
 
 	private void doSpawn()
 	{
-        Node@ newNode = scene.CreateChild();
-        newNode.temporary = true;
+		Node@ newNode = scene.CreateChild();
+		newNode.temporary = true;
 
-        if (newNode.LoadXML(xmlfile.GetRoot(), true))
-        {
+		if (newNode.LoadXML(xmlfile.GetRoot(), true))
+		{
 			newNode.SetTransform(node.position, node.rotation);
 			newNode.vars[canGetVarName] = true;
-        }
+		}
 	}
 }

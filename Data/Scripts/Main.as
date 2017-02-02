@@ -30,6 +30,6 @@ void HandleInnerEvent(StringHash eventType, VariantMap& eventData)
 
 void HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData)
 {
-    if (input.keyDown[KEY_SPACE])
-        cast<PhysicsWorld2D>(global_scene.GetComponent("PhysicsWorld2D")).DrawDebugGeometry();
+    //if (input.keyDown[KEY_SPACE])
+        //cast<PhysicsWorld2D>(global_scene.GetComponent("PhysicsWorld2D")).DrawDebugGeometry();
 }

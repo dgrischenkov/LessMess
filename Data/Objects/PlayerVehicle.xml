@@ -11,7 +11,7 @@
 		<attribute name="Delayed Method Calls" value="0" />
 		<attribute name="Script File" value="ScriptFile;Scripts/PlayerVehicle.as" />
 		<attribute name="Class Name" value="PlayerVehicle" />
-		<attribute name="forceToMove" value="75" />
+		<attribute name="forceToMove" value="100" />
 		<attribute name="forceToRotate" value="1" />
 		<attribute name="cargoNodeName_base" value="CargoBox" />
 		<attribute name="nodeNameLock" value="ZoneGet_Lock" />

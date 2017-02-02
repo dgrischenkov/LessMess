@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node id="28">
+<node id="30">
 	<attribute name="Is Enabled" value="true" />
 	<attribute name="Name" value="PlayerVehicle" />
 	<attribute name="Tags" />
@@ -7,14 +7,14 @@
 	<attribute name="Rotation" value="1 0 0 0" />
 	<attribute name="Scale" value="1.1 1.1 1" />
 	<attribute name="Variables" />
-	<component type="ScriptInstance" id="129">
+	<component type="ScriptInstance" id="143">
 		<attribute name="Delayed Method Calls" value="0" />
 		<attribute name="Script File" value="ScriptFile;Scripts/PlayerVehicle.as" />
 		<attribute name="Class Name" value="PlayerVehicle" />
 		<attribute name="forceToMove" value="100" />
 		<attribute name="forceToRotate" value="1" />
 		<attribute name="cargoNodeName_base" value="CargoBox" />
-		<attribute name="nodeNameLock" value="ZoneGet_Lock" />
+		<attribute name="nodeNameLock" value="ZoneLock" />
 		<attribute name="selfNodeNameLock" value="G_Trigger_UnLoad" />
 		<attribute name="selfNodeNameGet" value="G_Trigger_Load" />
 		<attribute name="selfSpriteNode" value="G_Sprite" />
@@ -22,11 +22,11 @@
 		<attribute name="selfGRightNode" value="G_Right" />
 		<attribute name="canGetVarName" value="canGet" />
 	</component>
-	<component type="StaticSprite2D" id="130">
+	<component type="StaticSprite2D" id="144">
 		<attribute name="Order in Layer" value="100" />
 		<attribute name="Sprite" value="Sprite2D;Textures/veh.png" />
 	</component>
-	<component type="RigidBody2D" id="131">
+	<component type="RigidBody2D" id="145">
 		<attribute name="Body Type" value="Dynamic" />
 		<attribute name="Mass" value="1" />
 		<attribute name="Inertia" value="0.15" />
@@ -36,13 +36,13 @@
 		<attribute name="Angular Damping" value="10" />
 		<attribute name="Allow Sleep" value="false" />
 	</component>
-	<component type="CollisionPolygon2D" id="132">
+	<component type="CollisionPolygon2D" id="146">
 		<attribute name="Category Bits" value="1" />
 		<attribute name="Mask Bits" value="65535" />
 		<attribute name="Density" value="2" />
 		<attribute name="Vertices" value="0 0 128 62 154 153 153 62 205 204 76 62 10 215 35 191 205 204 76 190 10 215 35 191 0 0 128 190 154 153 153 62" />
 	</component>
-	<node id="29">
+	<node id="31">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="G_Left" />
 		<attribute name="Tags" />
@@ -50,21 +50,21 @@
 		<attribute name="Rotation" value="1 0 0 0" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
-		<component type="RigidBody2D" id="133">
+		<component type="RigidBody2D" id="147">
 			<attribute name="Body Type" value="Dynamic" />
 			<attribute name="Mass" value="0.106036" />
 			<attribute name="Inertia" value="0.00114696" />
 			<attribute name="Mass Center" value="0 0.0410119" />
 			<attribute name="Allow Sleep" value="false" />
 		</component>
-		<component type="CollisionBox2D" id="134">
+		<component type="CollisionBox2D" id="148">
 			<attribute name="Size" value="0.05 0.25" />
 			<attribute name="Category Bits" value="1" />
 			<attribute name="Mask Bits" value="65535" />
 			<attribute name="Density" value="5" />
 			<attribute name="Friction" value="1" />
 		</component>
-		<component type="CollisionCircle2D" id="135">
+		<component type="CollisionCircle2D" id="149">
 			<attribute name="Radius" value="0.04" />
 			<attribute name="Center" value="0 0.13" />
 			<attribute name="Category Bits" value="1" />
@@ -73,7 +73,7 @@
 			<attribute name="Friction" value="0" />
 		</component>
 	</node>
-	<node id="30">
+	<node id="32">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="G_Right" />
 		<attribute name="Tags" />
@@ -81,21 +81,21 @@
 		<attribute name="Rotation" value="1 0 0 0" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
-		<component type="RigidBody2D" id="136">
+		<component type="RigidBody2D" id="150">
 			<attribute name="Body Type" value="Dynamic" />
 			<attribute name="Mass" value="0.106036" />
 			<attribute name="Inertia" value="0.00114696" />
 			<attribute name="Mass Center" value="0 0.0410119" />
 			<attribute name="Allow Sleep" value="false" />
 		</component>
-		<component type="CollisionBox2D" id="137">
+		<component type="CollisionBox2D" id="151">
 			<attribute name="Size" value="0.05 0.25" />
 			<attribute name="Category Bits" value="1" />
 			<attribute name="Mask Bits" value="65535" />
 			<attribute name="Density" value="5" />
 			<attribute name="Friction" value="1" />
 		</component>
-		<component type="CollisionCircle2D" id="138">
+		<component type="CollisionCircle2D" id="152">
 			<attribute name="Radius" value="0.04" />
 			<attribute name="Center" value="0 0.13" />
 			<attribute name="Category Bits" value="1" />
@@ -104,7 +104,7 @@
 			<attribute name="Friction" value="0" />
 		</component>
 	</node>
-	<node id="31">
+	<node id="33">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="G_Sprite" />
 		<attribute name="Tags" />
@@ -112,11 +112,11 @@
 		<attribute name="Rotation" value="1 0 0 0" />
 		<attribute name="Scale" value="0.8 1 1" />
 		<attribute name="Variables" />
-		<component type="StaticSprite2D" id="139">
+		<component type="StaticSprite2D" id="153">
 			<attribute name="Sprite" value="Sprite2D;Textures/veh_g.png" />
 		</component>
 	</node>
-	<node id="32">
+	<node id="34">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="G_Trigger_Load" />
 		<attribute name="Tags" />
@@ -124,13 +124,13 @@
 		<attribute name="Rotation" value="1 0 0 0" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
-		<component type="RigidBody2D" id="140">
+		<component type="RigidBody2D" id="154">
 			<attribute name="Body Type" value="Dynamic" />
 			<attribute name="Mass" value="0.0121" />
 			<attribute name="Inertia" value="5.18536e-05" />
 			<attribute name="Allow Sleep" value="false" />
 		</component>
-		<component type="CollisionBox2D" id="141">
+		<component type="CollisionBox2D" id="155">
 			<attribute name="Size" value="0.2 0.05" />
 			<attribute name="Trigger" value="true" />
 			<attribute name="Category Bits" value="1" />
@@ -139,7 +139,7 @@
 			<attribute name="Friction" value="1" />
 		</component>
 	</node>
-	<node id="33">
+	<node id="35">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="G_Trigger_UnLoad" />
 		<attribute name="Tags" />
@@ -147,14 +147,14 @@
 		<attribute name="Rotation" value="1 0 0 0" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
-		<component type="RigidBody2D" id="142">
+		<component type="RigidBody2D" id="156">
 			<attribute name="Body Type" value="Dynamic" />
 			<attribute name="Mass" value="0.015" />
 			<attribute name="Inertia" value="2e-05" />
 			<attribute name="Use Fixture Mass" value="false" />
 			<attribute name="Allow Sleep" value="false" />
 		</component>
-		<component type="CollisionBox2D" id="143">
+		<component type="CollisionBox2D" id="157">
 			<attribute name="Trigger" value="true" />
 			<attribute name="Category Bits" value="1" />
 			<attribute name="Mask Bits" value="65535" />

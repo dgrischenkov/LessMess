@@ -22,7 +22,7 @@ class ZoneSpawn : ScriptObject, ZoneSpawn_mx
 	private XMLFile@ xmlfile;
 	private int countObjects;
 	private Node@ cargoNode;
-	private int nextPause = 500;
+	private uint nextPause = 500;
 
 	void DelayedStart()
 	{

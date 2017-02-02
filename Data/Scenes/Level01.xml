@@ -5,10 +5,10 @@
 	<attribute name="Smoothing Constant" value="50" />
 	<attribute name="Snap Threshold" value="5" />
 	<attribute name="Elapsed Time" value="40.0748" />
-	<attribute name="Next Replicated Node ID" value="70" />
-	<attribute name="Next Replicated Component ID" value="152" />
-	<attribute name="Next Local Node ID" value="16777451" />
-	<attribute name="Next Local Component ID" value="16780024" />
+	<attribute name="Next Replicated Node ID" value="71" />
+	<attribute name="Next Replicated Component ID" value="153" />
+	<attribute name="Next Local Node ID" value="16777452" />
+	<attribute name="Next Local Component ID" value="16780036" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="secondsPerProduct;powerRed;powerGreen;powerBlue;zoneNodeName0;zoneNodeName1;zoneNodeName2;zoneNodeName3;zoneNodeName4;zoneNodeName5;zoneNodeName6;zoneNodeName7;ZoneColor;ZoneCargoName" />
 	<component type="Octree" id="1" />
@@ -466,6 +466,21 @@
 			<attribute name="zoneNode5" value="68" />
 			<attribute name="zoneNode6" value="0" />
 			<attribute name="zoneNode7" value="0" />
+		</component>
+	</node>
+	<node id="70">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="ZoneEmpty" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="5.60939 4.40642 0" />
+		<attribute name="Rotation" value="0.719791 0 0 -0.694191" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="ScriptInstance" id="152">
+			<attribute name="Delayed Method Calls" value="0" />
+			<attribute name="Script File" value="ScriptFile;Scripts/ZoneEmpty.as" />
+			<attribute name="Class Name" value="ZoneEmpty_px" />
+			<attribute name="sourceXML" value="Objects/ZoneEmpty.xml" />
 		</component>
 	</node>
 </scene>

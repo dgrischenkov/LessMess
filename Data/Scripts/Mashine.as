@@ -1,6 +1,7 @@
 #include "Scripts/ProxyNode.as"
 #include "Scripts/CargoBox.as"
 #include "Scripts/ZoneGet.as"
+#include "Scripts/GameLogicMenuFunc.as"
 
 mixin class Mashine_mx
 {
@@ -63,6 +64,8 @@ class Mashine : ScriptObject, Mashine_mx
 
 		if ( currentSecondsPerProduct == .0f )
 		{
+			GameLogicMenuFunc_updateTimeCount(timeStep);
+
 	    	VariantMap cargoMap;
 
 	    	for (uint i = 0; i < zoneGetArray.length; ++i)
@@ -109,6 +112,8 @@ class Mashine : ScriptObject, Mashine_mx
 		    		cast<CargoBox>(cargoMap.values[i].GetScriptObject()).capacityCurrent -= 1;
 
 	    		currentSecondsPerProduct = secondsPerProduct;
+
+				GameLogicMenuFunc_updateBoxCount(1);
 	    	}
 	    }
 

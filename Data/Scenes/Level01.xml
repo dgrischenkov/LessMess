@@ -7,8 +7,8 @@
 	<attribute name="Elapsed Time" value="40.0748" />
 	<attribute name="Next Replicated Node ID" value="71" />
 	<attribute name="Next Replicated Component ID" value="153" />
-	<attribute name="Next Local Node ID" value="16777452" />
-	<attribute name="Next Local Component ID" value="16780036" />
+	<attribute name="Next Local Node ID" value="16777453" />
+	<attribute name="Next Local Component ID" value="16780048" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="secondsPerProduct;powerRed;powerGreen;powerBlue;zoneNodeName0;zoneNodeName1;zoneNodeName2;zoneNodeName3;zoneNodeName4;zoneNodeName5;zoneNodeName6;zoneNodeName7;ZoneColor;ZoneCargoName" />
 	<component type="Octree" id="1" />
@@ -331,7 +331,7 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/Mashine.as" />
 			<attribute name="Class Name" value="Mashine_px" />
 			<attribute name="sourceXML" value="Objects/Mashine.xml" />
-			<attribute name="secondsPerProduct" value="2" />
+			<attribute name="secondsPerProduct" value="1" />
 			<attribute name="zoneNode0" value="56" />
 			<attribute name="zoneNode1" value="57" />
 			<attribute name="zoneNode2" value="58" />
@@ -457,7 +457,7 @@
 			<attribute name="Script File" value="ScriptFile;Scripts/Mashine.as" />
 			<attribute name="Class Name" value="Mashine_px" />
 			<attribute name="sourceXML" value="Objects/Mashine.xml" />
-			<attribute name="secondsPerProduct" value="3" />
+			<attribute name="secondsPerProduct" value="2" />
 			<attribute name="zoneNode0" value="63" />
 			<attribute name="zoneNode1" value="64" />
 			<attribute name="zoneNode2" value="65" />

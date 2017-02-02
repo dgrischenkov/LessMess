@@ -15,6 +15,8 @@ class ZoneSpawn_px : ProxyNode, ZoneSpawn_mx
 
 class ZoneSpawn : ScriptObject, ZoneSpawn_mx
 {
+	String canGetVarName;
+
 	private Timer timer;
 	private XMLFile@ xmlfile;
 	private bool needSpawn = true;
@@ -54,6 +56,9 @@ class ZoneSpawn : ScriptObject, ZoneSpawn_mx
         newNode.temporary = true;
 
         if (newNode.LoadXML(xmlfile.GetRoot(), true))
+        {
 			newNode.SetTransform(node.position, node.rotation);
+			newNode.vars[canGetVarName] = true;
+        }
 	}
 }

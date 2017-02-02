@@ -22,17 +22,16 @@ shared class ZoneGet : ScriptObject
 	int zoneSpriteNumber;
 	String cargoNodeName_base;
 	String cargoNodeName_postfix;
-	String nodeNameLock0;
-	String nodeNameLock1;
-	String selfNodeNameLock0;
-	String selfNodeNameLock1;
+	String nodeNameLock;
+	String selfNodeNameLock;
+	String canGetVarName;
 
-	private Node@ realCargoBox, valideCargoBox;
-	private bool lock0, lock1, isChangeCargo;
+	private bool locked;
+	private Node@ realCargoBox;
 
 	Node@ cargoBox
 	{
-		get const { return realCargoBox; }
+		get const { return locked ? realCargoBox : null; }
 		set { log.Error("cargoBox read only!"); }
 	}
 
@@ -52,56 +51,47 @@ shared class ZoneGet : ScriptObject
 
 	private void lockEnabled(bool val)
 	{
-		node.GetChild(selfNodeNameLock0).GetComponent("RigidBody2D").enabled = val;
+		node.GetChild(selfNodeNameLock).GetComponent("RigidBody2D").enabled = val;
 	}
 
 	void changeCargo()
 	{
-		isChangeCargo = true;
-
+		lockEnabled(false);
+		cargoBox.vars[canGetVarName] = true;
 		node.GetComponents("StaticSprite2D")[SPRITE_ON].enabled = false;
 		node.GetComponents("StaticSprite2D")[SPRITE_OFF].enabled = true;
-
-		lockEnabled(false);
 	}
 
 	void HandleCollisionStart(StringHash eventType, VariantMap& eventData)
 	{
+		if (locked) return;
+
 		Node@ nodeA = eventData["NodeA"].GetPtr();
 		Node@ nodeB = eventData["NodeB"].GetPtr();
 
-		if (isChangeCargo) return;
-
-		if (nodeB.parent is node)
+		if (nodeA is node and nodeB.name.Contains(cargoNodeName_base))
 		{
-			if (nodeB.name == selfNodeNameLock0 and nodeA.name == nodeNameLock0) lock0 = true;
-			if (nodeB.name == selfNodeNameLock1 and nodeA.name == nodeNameLock1) lock1 = true;
-
-			if (lock0 and lock1 and (valideCargoBox !is null))
+			if (nodeB.name == cargoNodeName)
 			{
-				node.GetComponents("StaticSprite2D")[SPRITE_YES].enabled = false;
-				node.GetComponents("StaticSprite2D")[SPRITE_ON].enabled = true;
-
-				@realCargoBox = @valideCargoBox;
+				node.GetComponents("StaticSprite2D")[SPRITE_YES].enabled = true;
+				lockEnabled(true);
+				@realCargoBox = @nodeB;
+			}
+			else
+			{
+				node.GetComponents("StaticSprite2D")[SPRITE_NOT].enabled = true;
+				lockEnabled(false);
 			}
 		}
 
-		if (nodeA !is node) return;
-		if (!nodeB.name.Contains(cargoNodeName_base)) return;
-
-		if (nodeB.name == cargoNodeName)
+		if (nodeB.parent is node)
 		{
-			node.GetComponents("StaticSprite2D")[SPRITE_YES].enabled = true;
-			lockEnabled(true);
-
-			@valideCargoBox = @nodeB;
-		}
-		else
-		{
-			node.GetComponents("StaticSprite2D")[SPRITE_NOT].enabled = true;
-			lockEnabled(false);
-
-			@valideCargoBox = null;
+			if (nodeB.name == selfNodeNameLock and nodeA.name == nodeNameLock and @realCargoBox !is null)
+			{
+				node.GetComponents("StaticSprite2D")[SPRITE_YES].enabled = false;
+				node.GetComponents("StaticSprite2D")[SPRITE_ON].enabled = true;
+				locked = true;
+			}
 		}
 	}
 
@@ -110,20 +100,30 @@ shared class ZoneGet : ScriptObject
 		Node@ nodeA = eventData["NodeA"].GetPtr();
 		Node@ nodeB = eventData["NodeB"].GetPtr();
 
-		if (nodeA.name == selfNodeNameLock0 and nodeB.name == nodeNameLock0) lock0 = false;
-		if (nodeA.name == selfNodeNameLock1 and nodeB.name == nodeNameLock1) lock1 = false;
+		if (nodeA is node and nodeB.name.Contains(cargoNodeName_base))
+		{
+			if (nodeB.name == cargoNodeName)
+			{
+				if (locked)
+				{
+					node.GetComponents("StaticSprite2D")[SPRITE_OFF].enabled = false;
+					cargoBox.name = cargoNodeName_base;
+					locked = false;
+				}
+				else
+				{
+					node.GetComponents("StaticSprite2D")[SPRITE_YES].enabled = false;
+				}
 
-		if (nodeA !is node) return;
-		if (!nodeB.name.Contains(cargoNodeName_base)) return;
-
-		node.GetComponents("StaticSprite2D")[SPRITE_YES].enabled = false;
-		node.GetComponents("StaticSprite2D")[SPRITE_NOT].enabled = false;
-		node.GetComponents("StaticSprite2D")[SPRITE_ON].enabled = false;
-		node.GetComponents("StaticSprite2D")[SPRITE_OFF].enabled = false;
-
-		@realCargoBox = null;
-		@valideCargoBox = null;
-
-		isChangeCargo = false;
+				@realCargoBox = null;
+			}
+			else
+			{
+				if (!locked)
+				{
+					node.GetComponents("StaticSprite2D")[SPRITE_NOT].enabled = false;
+				}
+			}
+		}
 	}
 }

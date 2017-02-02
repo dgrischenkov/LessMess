@@ -113,6 +113,7 @@
 		<attribute name="Scale" value="0.8 1 1" />
 		<attribute name="Variables" />
 		<component type="StaticSprite2D" id="153">
+			<attribute name="Order in Layer" value="100" />
 			<attribute name="Sprite" value="Sprite2D;Textures/veh_g.png" />
 		</component>
 	</node>

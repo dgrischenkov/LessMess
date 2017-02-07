@@ -41,6 +41,18 @@ class PlayerVehicle : ScriptObject
 
 	private bool isReverse;
 
+
+	private ConstraintRevolute2D@ constraintL;
+	private ConstraintRevolute2D@ constraintR;
+	private ConstraintRevolute2D@ constraintGL;
+	private ConstraintRevolute2D@ constraintGU;
+
+	private ConstraintPrismatic2D@ constraintWFL;
+	private ConstraintPrismatic2D@ constraintWFR;
+	private ConstraintRevolute2D@ constraintWRL;
+	private ConstraintRevolute2D@ constraintWRR;
+
+
 	void DelayedStart()
 	{
 		spriteScaleOrigin = node.GetChild(selfSpriteNode).scale;
@@ -72,15 +84,6 @@ class PlayerVehicle : ScriptObject
 		bodySrcWRL.angularDamping = defaultAngularDamping;
 		bodySrcWRR.angularDamping = defaultAngularDamping;
 
-		ConstraintRevolute2D@ constraintL;
-		ConstraintRevolute2D@ constraintR;
-		ConstraintRevolute2D@ constraintGL;
-		ConstraintRevolute2D@ constraintGU;
-
-		ConstraintPrismatic2D@ constraintWFL;
-		ConstraintPrismatic2D@ constraintWFR;
-		ConstraintRevolute2D@ constraintWRL;
-		ConstraintRevolute2D@ constraintWRR;
 
 		constraintR = nodeSrcL.CreateComponent("ConstraintRevolute2D");
 		constraintR.otherBody = nodeDst.GetComponent("RigidBody2D");
@@ -123,6 +126,19 @@ class PlayerVehicle : ScriptObject
 
 
 	    SubscribeToEvent("PhysicsBeginContact2D", "HandleCollisionStart");
+	}
+
+	void Stop()
+	{
+		node.RemoveComponent(constraintL);
+		node.RemoveComponent(constraintR);
+		node.RemoveComponent(constraintGL);
+		node.RemoveComponent(constraintGU);
+
+		node.RemoveComponent(constraintWFL);
+		node.RemoveComponent(constraintWFR);
+		node.RemoveComponent(constraintWRL);
+		node.RemoveComponent(constraintWRR);
 	}
 
 	void HandleCollisionStart(StringHash eventType, VariantMap& eventData)

@@ -128,19 +128,6 @@ class PlayerVehicle : ScriptObject
 		SubscribeToEvent("PhysicsBeginContact2D", "HandleCollisionStart");
 	}
 
-	void Stop()
-	{
-		node.RemoveComponent(constraintL);
-		node.RemoveComponent(constraintR);
-		node.RemoveComponent(constraintGL);
-		node.RemoveComponent(constraintGU);
-
-		node.RemoveComponent(constraintWFL);
-		node.RemoveComponent(constraintWFR);
-		node.RemoveComponent(constraintWRL);
-		node.RemoveComponent(constraintWRR);
-	}
-
 	void HandleCollisionStart(StringHash eventType, VariantMap& eventData)
 	{
 		Node@ nodeA = eventData["NodeA"].GetPtr();

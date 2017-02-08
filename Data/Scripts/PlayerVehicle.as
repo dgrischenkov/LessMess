@@ -214,8 +214,8 @@ class PlayerVehicle : ScriptObject
 			bodySrcWFR.linearDamping = defaultLinearDamping;
 		}
 
-			 if (input.keyDown[KEY_D]) strafe -= ( strafe > 0 ) ? 0.6f : 0.4f;
-		else if (input.keyDown[KEY_A]) strafe += ( strafe < 0 ) ? 0.6f : 0.4f;
+			 if (input.keyDown[KEY_A]) strafe -= ( strafe > 0 ) ? 0.6f : 0.4f;
+		else if (input.keyDown[KEY_D]) strafe += ( strafe < 0 ) ? 0.6f : 0.4f;
 		else
 		{
 			if ( strafe < 0 ) strafe += 0.5f;

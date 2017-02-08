@@ -13,6 +13,8 @@ class GameLogicMenu : GameLogic
 	private uint boxCount_;
 	private float timeCount_ = 200.f;
 
+	private bool isLoad;
+
 	GameLogicMenu(Scene@ scene)
 	{
 		scene_ = scene;
@@ -66,18 +68,20 @@ class GameLogicMenu : GameLogic
 	    {
 	    	boxCount_ += eventData["boxCount"].GetUInt();
 	    	textScoreCount_.text = boxCount_;
+
+	    	if (boxCount_ > 100.f and isLoad == false)
+	    	{
+	    		isLoad = true;
+	    		scene_.RemoveAllComponents();
+    			scene_.RemoveAllChildren();
+	    		GameLogic_sceneLoad(scene_, "Scenes/Level02.xml");
+	    	}
 	    }
 
 	    if (eventData.Contains("timeCount"))
 	    {
 	    	timeCount_ -= eventData["timeCount"].GetFloat();
 	    	textTimeCount_.text = uint(timeCount_ * 10);
-
-	    	if (timeCount_ > 2.f)
-	    	{
-    			// scene_.RemoveAllChildren();
-	    		// GameLogic_sceneLoad(scene_, "Scenes/Level02.xml");
-	    	}
 	    }
 	}
 }

@@ -66,58 +66,58 @@ class Mashine : ScriptObject, Mashine_mx
 		{
 			GameLogicMenuFunc_updateTimeCount(timeStep);
 
-	    	VariantMap cargoMap;
+			VariantMap cargoMap;
 
-	    	for (uint i = 0; i < zoneGetArray.length; ++i)
-	    	{
-	    		String cargoNodeName = zoneGetArray[i].cargoNodeName;
+			for (uint i = 0; i < zoneGetArray.length; ++i)
+			{
+				String cargoNodeName = zoneGetArray[i].cargoNodeName;
 
 				if (not cargoMap.Contains(cargoNodeName))
 					cargoMap[cargoNodeName] = 0;
 
 				if ( zoneGetArray[i].cargoBox !is null )
 				{
-	    			CargoBox@ cargoBoxNew = cast<CargoBox>(zoneGetArray[i].cargoBox.scriptObject);
+					CargoBox@ cargoBoxNew = cast<CargoBox>(zoneGetArray[i].cargoBox.scriptObject);
 
-	    			if ( cargoBoxNew.capacityCurrent == 0 )
-	    				zoneGetArray[i].changeCargo();
+					if ( cargoBoxNew.capacityCurrent == 0 )
+						zoneGetArray[i].changeCargo();
 
 					if ( cargoMap[cargoNodeName] != 0 )
 					{
 						CargoBox@ cargoBoxOld = cast<CargoBox>(cargoMap[cargoNodeName].GetScriptObject());
 
-		    			if ( cargoBoxOld.capacityCurrent < cargoBoxNew.capacityCurrent )
-		    				cargoMap[cargoNodeName] = cargoBoxOld;
+						if ( cargoBoxOld.capacityCurrent < cargoBoxNew.capacityCurrent )
+							cargoMap[cargoNodeName] = cargoBoxOld;
 	
-		    			if ( cargoBoxOld.capacityCurrent == 0 )
-		    				cargoMap[cargoNodeName] = cargoBoxNew;
+						if ( cargoBoxOld.capacityCurrent == 0 )
+							cargoMap[cargoNodeName] = cargoBoxNew;
 					}
 					else cargoMap[cargoNodeName] = cargoBoxNew;
 				}
-	    	}
+			}
 
-	    	bool doDecrase = true;
-	    	for (uint i = 0; i < cargoMap.values.length; ++i )
-	    	{
-	    		if (cargoMap.values[i] == 0)
-	    			{ doDecrase = false; break; }
+			bool doDecrase = true;
+			for (uint i = 0; i < cargoMap.values.length; ++i )
+			{
+				if (cargoMap.values[i] == 0)
+					{ doDecrase = false; break; }
 
-	    		if ( cast<CargoBox>(cargoMap.values[i].GetScriptObject()).capacityCurrent == 0 )
-	    			{ doDecrase = false; break; }
-	    	}
+				if ( cast<CargoBox>(cargoMap.values[i].GetScriptObject()).capacityCurrent == 0 )
+					{ doDecrase = false; break; }
+			}
 
-	    	if (doDecrase)
-	    	{
-		    	for (uint i = 0; i < cargoMap.values.length; ++i )
-		    		cast<CargoBox>(cargoMap.values[i].GetScriptObject()).capacityCurrent -= 1;
+			if (doDecrase)
+			{
+				for (uint i = 0; i < cargoMap.values.length; ++i )
+					cast<CargoBox>(cargoMap.values[i].GetScriptObject()).capacityCurrent -= 1;
 
-	    		currentSecondsPerProduct = secondsPerProduct;
+				currentSecondsPerProduct = secondsPerProduct;
 
 				GameLogicMenuFunc_updateBoxCount(1);
-	    	}
-	    }
+			}
+		}
 
 		Text3D@ t = node.GetComponents("Text3D")[0];
-        t.text = "seconds: " + ((int( currentSecondsPerProduct * 100 )) / 10) + " / " + (secondsPerProduct * 10);
+		t.text = "seconds: " + ((int( currentSecondsPerProduct * 100 )) / 10) + " / " + (secondsPerProduct * 10);
 	}
 }

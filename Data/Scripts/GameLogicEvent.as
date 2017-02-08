@@ -16,10 +16,10 @@ class GameLogicEvent : GameLogic
 		{
 			++currentLevel;
 
-		    if (eventData["next_level"].GetBool())
-	    	{
-		        GameLogic_sceneLoad(scene_, "Scenes/Level0" + currentLevel + ".xml");
-	    	}
-	    }
+			if (eventData["next_level"].GetBool())
+			{
+				GameLogic_sceneLoad(scene_, "Scenes/Level0" + currentLevel + ".xml");
+			}
+		}
 	}
 }

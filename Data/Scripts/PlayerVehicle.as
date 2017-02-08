@@ -125,7 +125,7 @@ class PlayerVehicle : ScriptObject
 		constraintWRR.anchor = nodeWRR.worldPosition2D;
 
 
-	    SubscribeToEvent("PhysicsBeginContact2D", "HandleCollisionStart");
+		SubscribeToEvent("PhysicsBeginContact2D", "HandleCollisionStart");
 	}
 
 	void Stop()

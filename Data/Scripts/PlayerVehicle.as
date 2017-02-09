@@ -34,12 +34,10 @@ class PlayerVehicle : ScriptObject
 	private float defaultAngularDamping = 0.0f;
 
 	private float stopLinearDamping = 80.0f;
-	private float forceDefault = 8.0f;
+	private float forceDefault = 7.0f;
 
 	private float strafe;
 	private float force;
-
-	private bool isReverse;
 
 
 	private ConstraintRevolute2D@ constraintL;
@@ -174,6 +172,14 @@ class PlayerVehicle : ScriptObject
 		return Vector2(vec.x, vec.y);
 	}
 
+	private float getDot(Node@ node_)
+	{
+		RigidBody2D@ body = node_.GetComponent("RigidBody2D");
+		Vector2 velocity = body.linearVelocity;
+		Vector2 direction = getWorldDirection2D(node_);
+		return velocity.DotProduct( direction );
+	}
+
 	private Vector2 getNewLinearVelocity(Node@ node_)
 	{
 		RigidBody2D@ body = node_.GetComponent("RigidBody2D");
@@ -184,22 +190,36 @@ class PlayerVehicle : ScriptObject
 
 	void FixedUpdate(float timeStep)
 	{
-		force = input.keyDown[KEY_W] ? forceDefault : 0.0f;
+		force = 0.0f;
+		bodySrcWFL.linearDamping = defaultLinearDamping;
+		bodySrcWFR.linearDamping = defaultLinearDamping;
 
-		if (isReverse) force *= -1;
-
-		if (input.keyPress[KEY_R]) isReverse = !isReverse;
+		if (input.keyDown[KEY_W])
+		{
+			if (getDot(node) > -0.1f)
+			{
+				force = forceDefault;
+			}
+			else
+			{
+				bodySrcWFL.linearDamping = stopLinearDamping;
+				bodySrcWFR.linearDamping = stopLinearDamping;
+			}
+		}
 
 		if (input.keyDown[KEY_S])
 		{
-			bodySrcWFL.linearDamping = stopLinearDamping;
-			bodySrcWFR.linearDamping = stopLinearDamping;
+			if (getDot(node) < 0.1f)
+			{
+				force = -forceDefault;
+			}
+			else
+			{
+				bodySrcWFL.linearDamping = stopLinearDamping;
+				bodySrcWFR.linearDamping = stopLinearDamping;
+			}
 		}
-		else
-		{
-			bodySrcWFL.linearDamping = defaultLinearDamping;
-			bodySrcWFR.linearDamping = defaultLinearDamping;
-		}
+
 
 			 if (input.keyDown[KEY_A]) strafe -= ( strafe > 0 ) ? 0.6f : 0.4f;
 		else if (input.keyDown[KEY_D]) strafe += ( strafe < 0 ) ? 0.6f : 0.4f;
